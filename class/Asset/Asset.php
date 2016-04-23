@@ -1,9 +1,9 @@
 <?php
 
-namespace Phi\Resource;
+namespace Phi\Asset;
 
 
-class Resource
+class Asset
 {
 
 

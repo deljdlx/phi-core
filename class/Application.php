@@ -6,6 +6,14 @@ namespace Phi;
 
 use Phi\Interfaces\Router;
 
+/**
+ * Class Application
+ *
+ * @property Router $router
+ *
+ * @package Phi
+ */
+
 class Application
 {
 
@@ -49,6 +57,7 @@ class Application
 		else {
 			return false;
 		}
+
 	}
 
 

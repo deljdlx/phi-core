@@ -1,6 +1,6 @@
 <?php
 
-namespace Phi\Resource;
+namespace Phi\Asset;
 
 
 

@@ -1,13 +1,19 @@
 <?php
 
-namespace Phi\Resource;
+namespace Phi\Asset;
 
 
-
+/**
+ * Class Manager
+ * @package Phi\Resource
+ * @property Deployer $deployer
+ * @property Resource $resources[]
+ */
 
 class Manager
 {
 
+    protected $deployer=null;
 
     protected $resources=array();
 
@@ -18,12 +24,13 @@ class Manager
     protected $cssBuffer='';
     protected $javascriptBuffer='';
 
-    protected $deployer;
 
 
 
 
-    public function registerResource($resource) {
+
+    public function registerAsset(Asset $resource) {
+
         $this->resources[]=$resource;
         return $this;
     }
@@ -32,6 +39,8 @@ class Manager
 
 
     public function merge() {
+
+
         $this->javascriptBuffer='';
         $this->cssBuffer='';
 
@@ -114,9 +123,9 @@ class Manager
 
 
 
-    public function deployResource($resource) {
+    public function deployResource($asset) {
 
-        return $this->deployer->deploy($resource);
+        return $this->deployer->deploy($asset);
 
         /*
         return call_user_func_array(
