@@ -1,0 +1,19 @@
+{
+	"name": "phi",
+	"description": "A framework for people who don't like frameworks",
+	"repositories": [
+	],
+	"require":
+	{
+	},
+	"require-dev": {
+	},
+	"config": {
+		"process-timeout": 600
+	},
+	"autoload": {
+		"files": [
+			"bootstrap.php"
+		]
+	}
+}
