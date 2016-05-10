@@ -8,18 +8,19 @@ use Phi\Exception;
 
 class Route
 {
-
     protected $validator;
     protected $callback;
     protected $verbs=array();
-
     protected $parameters=array();
 
+    protected $headers=array();
 
-    public function __construct($verbs, $validator, $callback) {
+
+    public function __construct($verbs, $validator, $callback, $headers=array()) {
         $this->validator=$validator;
         $this->callback=$callback;
         $this->verbs=array($verbs);
+        $this->headers=$headers;
     }
 
 
@@ -31,6 +32,7 @@ class Route
 
         if(is_string($this->validator)) {
             $matches=array();
+
             if(preg_match_all($this->validator, $callString, $matches)) {
 
                 if(!empty($matches)) {
@@ -99,7 +101,7 @@ class Route
         }
 
 
-        $callback=$this->callback->bindTo($this, $this);
+        $callback=$this->callback;
 
         return call_user_func_array(
             array($callback, '__invoke'),
@@ -112,6 +114,11 @@ class Route
     public function getParameters() {
         return $this->parameters;
     }
+
+    public  function getHeaders() {
+        return $this->headers;
+    }
+
 
 
 }

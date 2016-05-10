@@ -1,14 +1,22 @@
 <?php
 
 namespace Phi;
+use Phi\HTTP\Header;
 
 
-class Router implements \Phi\Interfaces\Router
+/**
+ * Class Router
+ * @package Phi
+ * @param
+ */
+class Router
 {
 
 
     protected $routes=array();
     protected $routesByName=array();
+
+    protected $headers=array();
 
 
     public function addRoute(Route $route, $name='') {
@@ -18,9 +26,9 @@ class Router implements \Phi\Interfaces\Router
     }
 
 
-    public function get($validator, $callback, $name='') {
+    public function get($validator, $callback, $headers=array(), $name='') {
         return $this->addRoute(
-            new Route('get', $validator, $callback),
+            new Route('get', $validator, $callback, $headers),
             $name
         );
     }
@@ -28,11 +36,31 @@ class Router implements \Phi\Interfaces\Router
     public function run() {
 
         foreach ($this->routes as $route) {
+            /**
+             * @var \Phi\Route $route
+             */
 
             if($route->validate()) {
-                return $route->execute();
+                if($route->execute()) {
+                    $headers=$route->getHeaders();
+                    foreach ($headers as $name=>$value) {
+                        $this->headers[$name]=new Header($name, $value);
+                    }
+                    break;
+                }
             }
         }
+
+        $this->sendHeaders();
+    }
+
+
+    public function sendHeaders() {
+        foreach ($this->headers as $header) {
+            $header->send();
+        }
+        return $this;
+
     }
 }
 
