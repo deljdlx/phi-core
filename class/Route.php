@@ -101,7 +101,7 @@ class Route
         }
 
 
-        $callback=$this->callback;
+        $callback=$this->callback->bindTo($this, $this);
 
         return call_user_func_array(
             array($callback, '__invoke'),
