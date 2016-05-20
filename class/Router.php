@@ -35,6 +35,8 @@ class Router
 
     public function run() {
 
+
+        ob_start();
         foreach ($this->routes as $route) {
             /**
              * @var \Phi\Route $route
@@ -50,8 +52,9 @@ class Router
                 }
             }
         }
-
+        $buffer=ob_get_clean();
         $this->sendHeaders();
+        echo $buffer;
     }
 
 
