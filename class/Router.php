@@ -14,19 +14,30 @@ class Router
 
 
     protected $routes=array();
-    protected $routesByName=array();
-
     protected $headers=array();
 
 
-    public function addRoute(Route $route, $name='') {
-        $this->routes[]=$route;
-        $this->routesByName[$name]=$route;
+    public function addRoute(Route $route, $name) {
+        $this->routes[$name]=$route;
         return $route;
     }
 
 
-    public function get($validator, $callback, $headers=array(), $name='') {
+    public function getRouteByName($name) {
+        if(isset($this->routes[$name])) {
+            return $this->routes[$name];
+        }
+        else {
+            throw new Exception('Route with name "'.$name.'" does not exist');
+        }
+    }
+
+
+    public function get($validator, $callback, $name=null, $headers=array()) {
+        if($name===null) {
+            $name=$validator;
+        }
+
         return $this->addRoute(
             new Route('get', $validator, $callback, $headers),
             $name

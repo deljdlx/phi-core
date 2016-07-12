@@ -1,6 +1,13 @@
 <?php
 include(__DIR__.'/class/Autoloader.php');
-include(__DIR__.'/helper/string.php');
+
+$helpers=glob(__DIR__.'/helper/*.php');
+
+
+foreach ($helpers as $helper) {
+    include($helper);
+}
+
 
 
 function registerNamespace($namespace, $folder) {

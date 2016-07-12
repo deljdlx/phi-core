@@ -15,5 +15,7 @@ function registerNamespace($namespace, $folder) {
 */
 
 
-
+function is_closure($variable) {
+	return is_object($variable) && ($variable instanceof Closure);
+}
 

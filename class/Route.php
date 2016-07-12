@@ -4,23 +4,37 @@
 namespace Phi;
 
 
-use Phi\Exception;
-
 class Route
 {
     protected $validator;
     protected $callback;
     protected $verbs=array();
     protected $parameters=array();
-
     protected $headers=array();
+
+
+    protected $builder=null;
 
 
     public function __construct($verbs, $validator, $callback, $headers=array()) {
         $this->validator=$validator;
         $this->callback=$callback;
         $this->verbs=array($verbs);
-        $this->headers=$headers;
+        $this->addHeaders($headers);
+    }
+
+
+    public function build(/*$parameters*/) {
+
+        $parameters=func_get_args();
+        if(is_callable($this->builder)) {
+            return call_user_func_array($this->builder, $parameters);
+        }
+    }
+
+
+    public function addHeaders($headers) {
+        $this->headers=array_merge($this->headers, $headers);
     }
 
 
@@ -37,13 +51,30 @@ class Route
 
                 if(!empty($matches)) {
                     array_shift($matches);
-
                     foreach ($matches as $key=>$match) {
                         $this->parameters[$key]=$match[0];
                     }
-
                 }
                 return true;
+            }
+        }
+        else if(is_closure($this->validator)) {
+
+            $parameters=array();
+
+
+            $closure=$this->validator->bindTo($this, $this);
+
+            $validate=call_user_func_array(
+                array($closure, '__invoke'),
+                $parameters
+            );
+
+            if($validate) {
+                return true;
+            }
+            else {
+                return false;
             }
         }
 
