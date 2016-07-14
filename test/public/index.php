@@ -25,24 +25,10 @@ ini_set('display_errors', 'on');
 
 
 $request=\Phi\Request::getInstance();
-
-echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
-echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
-print_r($request);
-echo '</pre>';
-
-
-echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
-echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
-print_r($request->isHTTP());
-echo '</pre>';
-
-
-die('EXIT '.__FILE__.'@'.__LINE__);
+//$request=null;
 
 
 $router=new \Phi\Router();
-
 
 $route=$router->get(function() {
     $this->parameters['test']='yala ça marche';
@@ -56,12 +42,8 @@ $route=$router->get(function() {
 }, 'test');
 
 
-$router->run();
+$router->run($request);
 
-
-die('EXIT '.__FILE__.'@'.__LINE__);
-
-$router->run();
 
 
 die('EXIT '.__FILE__.'@'.__LINE__);

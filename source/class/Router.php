@@ -2,6 +2,7 @@
 
 namespace Phi;
 use Phi\HTTP\Header;
+use Phi\Interfaces\Request;
 
 
 /**
@@ -44,7 +45,16 @@ class Router
         );
     }
 
-    public function run() {
+
+    protected function getDefaultRequest() {
+        return new \Phi\Request();
+    }
+
+    public function run(Request $request=null) {
+
+        if($request==null) {
+            $request=$this->getDefaultRequest();
+        }
 
 
         ob_start();
@@ -53,7 +63,7 @@ class Router
              * @var \Phi\Route $route
              */
 
-            if($route->validate()) {
+            if($route->validate($request)) {
                 if($route->execute()) {
                     $headers=$route->getHeaders();
                     foreach ($headers as $name=>$value) {
@@ -64,7 +74,9 @@ class Router
             }
         }
         $buffer=ob_get_clean();
-        $this->sendHeaders();
+        if($request->isHTTP()) {
+            $this->sendHeaders();
+        }
         echo $buffer;
     }
 

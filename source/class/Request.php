@@ -2,12 +2,14 @@
 namespace Phi;
 
 
-class Request
+class Request implements \Phi\Interfaces\Request
 {
 
 
 
 	protected static $mainInstance=null;
+
+	protected $uri=null;
 
 
 	public static function getInstance() {
@@ -20,8 +22,15 @@ class Request
 
 
 	public function __construct() {
-
+		if($this->isHTTP()) {
+			$this->URI=$_SERVER['REQUEST_URI'];
+		}
 	}
+
+	public function getURI() {
+		return $this->URI;
+	}
+
 
 	public function isHTTP() {
 

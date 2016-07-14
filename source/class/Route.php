@@ -4,7 +4,10 @@
 namespace Phi;
 
 
-class Route
+use Phi\Interfaces\Request;
+
+
+class Route implements \Phi\Interfaces\Route
 {
     protected $validator;
     protected $callback;
@@ -38,10 +41,11 @@ class Route
     }
 
 
-    public function validate() {
+    public function validate(Request $request) {
 
 
-        $callString=$_SERVER['REQUEST_URI'];
+        $callString=$request->getURI();
+
 
 
         if(is_string($this->validator)) {
@@ -62,9 +66,7 @@ class Route
 
             $parameters=array();
 
-
             $closure=$this->validator->bindTo($this, $this);
-
             $validate=call_user_func_array(
                 array($closure, '__invoke'),
                 $parameters
