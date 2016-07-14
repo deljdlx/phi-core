@@ -26,3 +26,19 @@ function registerNamespace($namespace, $folder) {
 	}
 	$componentAutoloader->addNamespace($namespace, $folder);
 }
+
+
+
+
+function includePhiModule($moduleName) {
+
+
+	$bootstrap=realpath(__DIR__.'/../module').'/'.escapeshellcmd($moduleName).'/bootstrap.php';
+
+	if(is_file($bootstrap) && $bootstrap) {
+		include($bootstrap);
+
+	}
+
+
+}
