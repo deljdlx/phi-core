@@ -6,6 +6,9 @@
 	<!-- /.panel-heading -->
 	<div class="panel-body">
 		<ul class="timeline">
+
+
+
 			<li>
 				<div class="timeline-badge"><i class="fa fa-check"></i>
 				</div>
@@ -20,6 +23,27 @@
 					</div>
 				</div>
 			</li>
+
+
+
+
+
+			<li class="timeline-inverted">
+				<div class="timeline-badge"><i class="fa fa-check"></i>
+				</div>
+				<div class="timeline-panel">
+					<div class="timeline-heading">
+						<h4 class="timeline-title">Lorem ipsum dolor</h4>
+						<p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+						</p>
+					</div>
+					<div class="timeline-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+					</div>
+				</div>
+			</li>
+
+
 			<li class="timeline-inverted">
 				<div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
 				</div>
