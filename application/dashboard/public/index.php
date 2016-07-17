@@ -107,6 +107,8 @@
 
 
 
+
+
 	<script src="vendor/babelcore.js"></script>
 	<script src="vendor/react/build/react.js"></script>
 	<script src="vendor/react/build/react-dom.js"></script>
@@ -130,9 +132,15 @@
 
 
 
+	<link rel="stylesheet" href="vendor/jstree/dist/themes/default/style.min.css" />
+	<script src="vendor/jstree/dist/jstree.min.js"></script>
+
+
+
 		<script>
 
 			$(function() {
+
 				var workspace=new Bienvenue.Workspace();
 				workspace.run();
 			});
@@ -157,7 +165,7 @@
 
 	<body>
 
-	<div  id="toto"></div>
+
 
 
 	<div id="wrapper">

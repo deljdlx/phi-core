@@ -38,33 +38,11 @@ Bienvenue.Workspace.prototype.run=function()
 
 
 
-
-	return;
-
 	//toop tip et tooltip on click===========================
 	$('.bs-component [data-toggle="popover"]').popover();
 	$('.bs-component [data-toggle="tooltip"]').tooltip();
 	//============================================
 
-
-	$(".shor").noUiSlider({
-		start: 40,
-		connect: "lower",
-		range: {
-			min: 0,
-			max: 100
-		}
-	});
-
-	$(".svert").noUiSlider({
-		orientation: "vertical",
-		start: 40,
-		connect: "lower",
-		range: {
-			min: 0,
-			max: 100
-		}
-	});
 
 
 
@@ -87,6 +65,22 @@ Bienvenue.Workspace.prototype.rebuild=function() {
 
 	$.material.init();
 };
+
+
+
+
+
+Bienvenue.Workspace.prototype.initializeSummerNote=function(selector) {
+	if($(selector).length) {
+		$(selector).summernote({
+			lang: 'fr-FR' // default: 'en-US'
+		});
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 
@@ -120,12 +114,6 @@ Bienvenue.Workspace.prototype.runSummerNode=function() {
 	}
 
 
-
-
-
-	$('#summernote').summernote({
-		lang: 'fr-FR' // default: 'en-US'
-	});
 
 
 }

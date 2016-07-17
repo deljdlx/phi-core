@@ -1,7 +1,20 @@
 <div class="col-lg-12">
+
+
+
+
+
+	<div>
+		<h1>JS Tree Inline data demo</h1>
+		<div id="data" class="demo"></div>
+	</div>
+
+
+
+
+
+
 	<h1 class="page-header">Dashboard</h1>
-
-
 
 	<div id="summernote"><p>Hello Summernote</p></div>
 
@@ -1665,6 +1678,9 @@
 
 <!--===============================================================//-->
 <!--===============================================================//-->
+
+
+
 
 <div class="row">
 	<?php include(__DIR__.'/fragment/ticket.php');?>
