@@ -127,8 +127,8 @@
 
 	<script src="source/class/Workspace/Panel/Test/Test.js"></script>
 
-	<script src="source/class/Component/LeftNavigationBar/LeftNavigationBar.js"></script>
-	<script src="source/class/Component/TopNavigationBar/TopNavigationBar.js"></script>
+	<script src="source/class/Workspace/LeftNavigationBar/LeftNavigationBar.js"></script>
+	<script src="source/class/Workspace/TopNavigationBar/TopNavigationBar.js"></script>
 
 
 

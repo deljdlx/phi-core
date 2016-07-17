@@ -30,10 +30,10 @@ Bienvenue.Workspace.prototype.run=function()
 
 
 	var node=$('.navbar-default.sidebar').get(0);
-	ReactDOM.render(React.createElement(Bienvenue.Component.LeftNavigationBar, null), this.leftNavigationBar.get(0));
+	ReactDOM.render(React.createElement(Bienvenue.Workspace.LeftNavigationBar, null), this.leftNavigationBar.get(0));
 
 	var node=$('.topNavigationBar').get(0);
-	ReactDOM.render(React.createElement(Bienvenue.Component.TopNavigationBar, null), this.topNavigationBar.get(0));
+	ReactDOM.render(React.createElement(Bienvenue.Workspace.TopNavigationBar, null), this.topNavigationBar.get(0));
 
 
 
@@ -73,7 +73,8 @@ Bienvenue.Workspace.prototype.rebuild=function() {
 Bienvenue.Workspace.prototype.initializeSummerNote=function(selector) {
 	if($(selector).length) {
 		$(selector).summernote({
-			lang: 'fr-FR' // default: 'en-US'
+			lang: 'fr-FR',
+			height: '500',                 // set editor height
 		});
 		return true;
 	}

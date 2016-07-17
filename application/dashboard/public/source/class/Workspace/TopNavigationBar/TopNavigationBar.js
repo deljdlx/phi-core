@@ -1,4 +1,4 @@
-Bienvenue.Component.TopNavigationBar = React.createClass({
+Bienvenue.Workspace.TopNavigationBar = React.createClass({
 
 	//displayName: 'TodoApp',
 
@@ -18,7 +18,7 @@ Bienvenue.Component.TopNavigationBar = React.createClass({
 
 	componentDidMount: function() {
 
-		$.get('source/class/Component/TopNavigationBar/nav-top.php').done(function(data) {
+		$.get('source/class/Workspace/TopNavigationBar/nav-top.php').done(function(data) {
 			this.setState({
 				html: data
 			});

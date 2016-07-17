@@ -1,4 +1,4 @@
-Bienvenue.Component.LeftNavigationBar = React.createClass({
+Bienvenue.Workspace.LeftNavigationBar = React.createClass({
 
 	//displayName: 'TodoApp',
 
@@ -32,7 +32,7 @@ Bienvenue.Component.LeftNavigationBar = React.createClass({
 
 		//this.interval = setInterval(this.tick, 1000);
 
-		$.get('source/class/Component/LeftNavigationBar/nav-left.php').done(function(data) {
+		$.get('source/class/Workspace/LeftNavigationBar/nav-left.php').done(function(data) {
 			//console.debug(data);
 			this.setState({
 				html: data
