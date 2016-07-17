@@ -1,10 +1,20 @@
+<div class="col-lg-12">
+	<h1 class="page-header">Dashboard</h1>
 
 
 
+	<div id="summernote"><p>Hello Summernote</p></div>
 
 
+	<div class="form-group label-floating">
+		<label class="control-label" for="datePicker">Date picker</label>
+		<input class="form-control bienvenue-datePicker" >
+		<p class="help-block">You should really write something here</p>
+	</div>
 
+	<?php include(__DIR__.'/social-button.php');?>
 
+</div>
 
 
 
@@ -1405,7 +1415,10 @@
 					<div class="list-group">
 						<div class="list-group-item">
 							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+
+
+								<img class="circle" src="http://icons.iconarchive.com/icons/iconka/meow/256/cat-grumpy-icon.png" alt="icon">
+
 							</div>
 							<div class="row-content">
 								<h4 class="list-group-item-heading">Tile with avatar</h4>
@@ -1416,7 +1429,7 @@
 						<div class="list-group-separator"></div>
 						<div class="list-group-item">
 							<div class="row-picture">
-								<img class="circle" src="http://lorempixel.com/56/56/people/6" alt="icon">
+								<img class="circle" src="https://lh3.googleusercontent.com/CZNmqUP46cLPrYRZbAGVnepuLczsCmC7bOlULDd0spCJkLi49K23XBBMBmJmjZf1v0k=w140" alt="icon">
 							</div>
 							<div class="row-content">
 								<h4 class="list-group-item-heading">Tile with another avatar</h4>
@@ -1647,3 +1660,43 @@
 	</div>
 </div>
 <br>
+
+
+
+<!--===============================================================//-->
+<!--===============================================================//-->
+
+<div class="row">
+	<?php include(__DIR__.'/fragment/ticket.php');?>
+</div>
+
+<div class="row">
+	<div class="col-lg-8">
+
+
+		<?php include(__DIR__.'/fragment/areachart.php');?>
+
+		<!-- /.panel -->
+
+		<?php include(__DIR__.'/fragment/barchart.php');?>
+		<!-- /.panel -->
+
+		<?php include(__DIR__.'/fragment/timeline.php');?>
+
+		<!-- /.panel -->
+	</div>
+	<!-- /.col-lg-8 -->
+	<div class="col-lg-4">
+
+
+
+		<?php include(__DIR__.'/fragment/notification.php');?>
+		<!-- /.panel -->
+
+		<?php include(__DIR__.'/fragment/donut.php');?>
+		<!-- /.panel -->
+		<?php include(__DIR__.'/fragment/chat.php');?>
+		<!-- /.panel .chat-panel -->
+	</div>
+	<!-- /.col-lg-4 -->
+</div>
