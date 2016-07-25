@@ -12,19 +12,9 @@ Bienvenue.Workspace.Panel.Test.prototype.render=function() {
 
 
 
-		// inline data demo
-		$('#data').jstree({
-			'core' : {
-				'data' : [
-					{ "text" : "Root node", "children" : [
-						{ "text" : "Child node 1" },
-						{ "text" : "Child node 2" }
-					]}
-				]
-			}
-		});
-
-
+		var tree=new Bienvenue.Component.Tree();
+		//tree.renderDemo('#data');
+		tree.renderAjaxDemo('#data');
 
 
 

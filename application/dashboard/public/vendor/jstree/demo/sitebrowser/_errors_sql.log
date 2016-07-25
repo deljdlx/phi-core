@@ -1,1 +1,2 @@
 [17-Jul-2016 20:06:44]  > Connect error: 2002
+[25-Jul-2016 21:42:57]  > Could not prepare : Table 'test.tree_struct' doesn't exist < SELECT s.id, s.lft, s.rgt, s.lvl, s.pid, s.pos, d.nm FROM tree_struct s, tree_data d WHERE s.id = d.id AND s.pid = 0 ORDER BY s.pos >

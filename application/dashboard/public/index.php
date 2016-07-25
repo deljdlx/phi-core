@@ -137,6 +137,9 @@
 
 
 
+	<script src="source/class/Component/Tree/Tree.js"></script>
+	<link rel="stylesheet" href="source/class/Component/Tree/css/jstree-fontawesome.css"/>
+
 		<script>
 
 			$(function() {

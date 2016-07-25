@@ -1,0 +1,45 @@
+
+
+
+.jstree-default
+    li.jstree-node {
+    font-size : 30px;
+    line-height: 35px;
+}
+
+.jstree-default
+    .jstree-themeicon {
+    background: none;
+    font-style: normal;
+    font-family: FontAwesome;
+    margin-right: 20px;
+}
+
+
+
+
+.jstree-default
+    .jstree-closed .jstree-themeicon:before {
+    content: "\f07b";
+}
+
+
+.jstree-default
+    .jstree-open .jstree-themeicon:before {
+    content: "\f07c";
+}
+
+
+.jstree-default
+    .jstree-icon.type-root:before {
+    content: "\f187";
+}
+
+
+.jstree-default
+.jstree-icon.type-file:before {
+    content: "\f15b ";
+}
+
+
+
