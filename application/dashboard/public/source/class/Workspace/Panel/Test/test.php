@@ -2,6 +2,17 @@
 
 
 
+<hr/>
+
+	<h2 class="page-header withripple">Date picker</h2>
+
+	<div class="form-group label-floating">
+		<label class="control-label">Date picker</label>
+		<input class="form-control bienvenue-datePicker">
+		<p class="help-block">You should really write something here</p>
+	</div>
+<hr/>
+
 
 <hr/>
 	<button class="customRipple" data-ripple-color="#FFF" style="padding: 8px;font-size: 22px; background-color: #89669b; border: none; color:#FFF">Button with custom ripple</button>
@@ -60,12 +71,6 @@
 
 
 
-
-	<div class="form-group label-floating">
-		<label class="control-label" for="datePicker">Date picker</label>
-		<input class="form-control bienvenue-datePicker" >
-		<p class="help-block">You should really write something here</p>
-	</div>
 
 	<?php include(__DIR__.'/social-button.php');?>
 

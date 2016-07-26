@@ -69,6 +69,8 @@ Bienvenue.Workspace.prototype.initializeRipple=function() {
 Bienvenue.Workspace.prototype.rebuild=function() {
 
 
+
+
 	$('.bienvenue-datePicker').datepicker({
 		language: "fr",
 		daysOfWeekHighlighted: "0,6",
