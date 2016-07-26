@@ -51,6 +51,21 @@ Bienvenue.Workspace.prototype.run=function()
 
 };
 
+
+
+
+Bienvenue.Workspace.prototype.initializeRipple=function() {
+
+
+
+	var ripple=new Bienvenue.Component.Ripple();
+	ripple.initialize();
+
+
+
+}
+
+
 Bienvenue.Workspace.prototype.rebuild=function() {
 
 
@@ -62,8 +77,12 @@ Bienvenue.Workspace.prototype.rebuild=function() {
 		todayHighlight: true
 	});
 
-
 	$.material.init();
+	this.initializeRipple();
+
+
+
+
 };
 
 

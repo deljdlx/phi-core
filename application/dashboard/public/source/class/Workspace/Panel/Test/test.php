@@ -1,5 +1,21 @@
 
 
+
+
+
+<hr/>
+	<button class="customRipple" data-ripple-color="#FFF" style="padding: 8px;font-size: 22px; background-color: #89669b; border: none; color:#FFF">Button with custom ripple</button>
+
+<hr/>
+
+	<div class="customRipple" style="padding: 8px;font-size: 22px; background-color: #444444; border: none; color:#FFF">div with custom ripple</div>
+<hr/>
+
+
+
+
+
+
 <div class="col-lg-12">
 
 <?php include(__DIR__.'/fragment/dialog.php'); ?>
@@ -12,15 +28,6 @@
 
 
 <div class="col-lg-12">
-
-
-
-
-
-
-
-
-
 
 
 
@@ -49,7 +56,7 @@
 
 
 
-	<h1 class="page-header">Dashboard</h1>
+	<h1 class="page-header withripple">Dashboard</h1>
 
 
 

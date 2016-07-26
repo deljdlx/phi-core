@@ -34,6 +34,11 @@ Bienvenue.Component.Tree.prototype.renderAjaxDemo=function(selector) {
 				},
 				'data' : function (node) {
 					return { 'id' : node.id };
+				},
+				'success':function(data) {
+
+
+
 				}
 			}
 		},
@@ -60,10 +65,14 @@ Bienvenue.Component.Tree.prototype.renderAjaxDemo=function(selector) {
 			"contextmenu", "dnd", "search",
 			"state", "types", "wholerow"
 		]
-
-
-
 	});
+
+
+
+
+
+
 }
+
 
 
