@@ -77,6 +77,10 @@ Bienvenue.Workspace.prototype.rebuild=function() {
 		todayHighlight: true
 	});
 
+
+	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="popover"]').popover();
+
 	$.material.init();
 	this.initializeRipple();
 
