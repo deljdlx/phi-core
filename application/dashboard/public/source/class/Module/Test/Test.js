@@ -1,12 +1,12 @@
-Bienvenue.Workspace.Panel.Test=function(workspace)
+Bienvenue.Module.Test=function(workspace)
 {
 	this.workspace=workspace;
 };
 
 
 
-Bienvenue.Workspace.Panel.Test.prototype.render=function() {
-	$.get('source/class/Workspace/Panel/Test/test.php', function(data) {
+Bienvenue.Module.Test.prototype.render=function() {
+	$.get('source/class/Module/Test/test.php', function(data) {
 		this.workspace.setMainContent(data);
 		this.afterRender();
 
@@ -27,9 +27,9 @@ Bienvenue.Workspace.Panel.Test.prototype.render=function() {
 
 
 
-Bienvenue.Workspace.Panel.Test.prototype.afterRender=function() {
+Bienvenue.Module.Test.prototype.afterRender=function() {
 	this.workspace.initializeSummerNote('#summernote');
-	this.initializeSliders();
+
 	this.initializeGraph();
 }
 
@@ -37,39 +37,11 @@ Bienvenue.Workspace.Panel.Test.prototype.afterRender=function() {
 
 
 
-Bienvenue.Workspace.Panel.Test.prototype.initializeSliders=function() {
-
-	if($(".slider.shor").length) {
-		$(".slider.shor").noUiSlider({
-			start: 50,
-			connect: "lower",
-			range: {
-				min: 0,
-				max: 100
-			}
-		});
-	}
-
-
-	if($(".slider.svert").length) {
-		$(".slider.svert").noUiSlider({
-			orientation: "vertical",
-			start: 50,
-			connect: "lower",
-			range: {
-				min: 0,
-				max: 100
-			}
-		});
-	}
-}
 
 
 
 
-
-
-Bienvenue.Workspace.Panel.Test.prototype.initializeGraph=function() {
+Bienvenue.Module.Test.prototype.initializeGraph=function() {
 
 
 	Morris.Area({
@@ -185,11 +157,9 @@ Bienvenue.Workspace.Panel.Test.prototype.initializeGraph=function() {
 		hideHover: 'auto',
 		resize: true
 	});
-
-	console.debug('ici');
 }
 
 
 
 
-Bienvenue.extends(Bienvenue.Workspace.Panel.Test, Bienvenue.Workspace.Panel);
+Bienvenue.extends(Bienvenue.Module.Test, Bienvenue.Module);

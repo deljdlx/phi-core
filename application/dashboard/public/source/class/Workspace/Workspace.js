@@ -5,11 +5,14 @@ Bienvenue.Workspace=function()
 	this.topNavigationBar=$('.topNavigationBar');
 
 
+
+	this.rippleManager=new Bienvenue.Component.Ripple();;
+
 }
 
 
 Bienvenue.Workspace.prototype.loadPanel=function(panelName) {
-	var panel=new Bienvenue.Workspace.Panel.Test(this);
+	var panel=new Bienvenue.Module.Test(this);
 	panel.render();
 	//panel.afterRender();
 };
@@ -22,76 +25,50 @@ Bienvenue.Workspace.prototype.setMainContent=function(content) {
 
 
 
-Bienvenue.Workspace.prototype.run=function()
-{
+Bienvenue.Workspace.prototype.run=function() {
 
+
+
+	this.initialize();
 	this.loadPanel('Test');
 
 
 
-	var node=$('.navbar-default.sidebar').get(0);
-	ReactDOM.render(React.createElement(Bienvenue.Workspace.LeftNavigationBar, null), this.leftNavigationBar.get(0));
-
-	var node=$('.topNavigationBar').get(0);
-	ReactDOM.render(React.createElement(Bienvenue.Workspace.TopNavigationBar, null), this.topNavigationBar.get(0));
-
-
-
-
-	//toop tip et tooltip on click===========================
-	$('.bs-component [data-toggle="popover"]').popover();
-	$('.bs-component [data-toggle="tooltip"]').tooltip();
-	//============================================
-
-
-
-
-	this.runSummerNode();
-
+	this.initializeTopMenu();
+	this.initializeLeftMenu();
 
 };
-
-
-
-
-Bienvenue.Workspace.prototype.initializeRipple=function() {
-
-
-
-	var ripple=new Bienvenue.Component.Ripple();
-	ripple.initialize();
-
-
-
-}
 
 
 Bienvenue.Workspace.prototype.rebuild=function() {
-
-
-
-
-	$('.bienvenue-datePicker').datepicker({
-		language: "fr",
-		daysOfWeekHighlighted: "0,6",
-		calendarWeeks: true,
-		autoclose: true,
-		todayHighlight: true
-	});
-
-
-	$('[data-toggle="tooltip"]').tooltip();
-	$('[data-toggle="popover"]').popover();
-
 	$.material.init();
+
+	this.initializeTooltip();
+	this.initializeDatePicker();
 	this.initializeRipple();
-
-
-
-
+	this.initializeSliders();
 };
 
 
+
+
+
+Bienvenue.Workspace.prototype.initializeLeftMenu=function() {
+	var node=$('.navbar-default.sidebar').get(0);
+	ReactDOM.render(
+		React.createElement(Bienvenue.Workspace.LeftNavigationBar, null),
+		this.leftNavigationBar.get(0)
+	);
+};
+
+
+Bienvenue.Workspace.prototype.initializeTopMenu=function() {
+	var node=$('.topNavigationBar').get(0);
+	ReactDOM.render(
+		React.createElement(Bienvenue.Workspace.TopNavigationBar, null),
+		this.topNavigationBar.get(0)
+	);
+};
 
 
 
@@ -110,12 +87,14 @@ Bienvenue.Workspace.prototype.initializeSummerNote=function(selector) {
 
 
 
-Bienvenue.Workspace.prototype.runSummerNode=function() {
 
 
+
+
+Bienvenue.Workspace.prototype.initialize=function() {
 	$(window).bind("load resize", function() {
-		topOffset = 50;
-		width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+		var topOffset = 50;
+		var width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
 		if (width < 768) {
 			$('div.navbar-collapse').addClass('collapse');
 			topOffset = 100; // 2-row-menu
@@ -123,7 +102,7 @@ Bienvenue.Workspace.prototype.runSummerNode=function() {
 			$('div.navbar-collapse').removeClass('collapse');
 		}
 
-		height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
+		var height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
 		height = height - topOffset;
 		if (height < 1) height = 1;
 		if (height > topOffset) {
@@ -131,15 +110,85 @@ Bienvenue.Workspace.prototype.runSummerNode=function() {
 		}
 	});
 
-	var url = window.location;
-	var element = $('ul.nav a').filter(function() {
-		return this.href == url || url.href.indexOf(this.href) == 0;
-	}).addClass('active').parent().parent().addClass('in').parent();
-	if (element.is('li')) {
-		element.addClass('active');
+
+	/*
+	 var url = window.location;
+	 var element = $('ul.nav a').filter(function() {
+	 return this.href == url || url.href.indexOf(this.href) == 0;
+	 }).addClass('active').parent().parent().addClass('in').parent();
+	 if (element.is('li')) {
+	 element.addClass('active');
+	 }
+	 */
+
+
+};
+
+
+
+
+
+
+
+
+
+
+Bienvenue.Workspace.prototype.initializeSliders=function() {
+
+	if($(".slider.shor").length) {
+		$(".slider.shor").noUiSlider({
+			start: 50,
+			connect: "lower",
+			range: {
+				min: 0,
+				max: 100
+			}
+		});
 	}
 
 
-
-
+	if($(".slider.svert").length) {
+		$(".slider.svert").noUiSlider({
+			orientation: "vertical",
+			start: 50,
+			connect: "lower",
+			range: {
+				min: 0,
+				max: 100
+			}
+		});
+	}
 }
+
+
+
+
+
+
+
+Bienvenue.Workspace.prototype.initializeDatePicker=function() {
+	$('.bienvenue-datePicker').datepicker({
+		language: "fr",
+		daysOfWeekHighlighted: "0,6",
+		calendarWeeks: true,
+		autoclose: true,
+		todayHighlight: true
+	});
+}
+
+Bienvenue.Workspace.prototype.initializeRipple=function() {
+	this.rippleManager.initialize('.customRipple');
+}
+
+Bienvenue.Workspace.prototype.initializeTooltip=function() {
+	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="popover"]').popover();
+};
+
+
+
+
+
+
+
+

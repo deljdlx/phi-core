@@ -123,9 +123,9 @@
 
 	<script src="source/class/Bienvenue.js"></script>
 	<script src="source/class/Workspace/Workspace.js"></script>
-	<script src="source/class/Workspace/Panel.js"></script>
+	<script src="source/class/Module.js"></script>
 
-	<script src="source/class/Workspace/Panel/Test/Test.js"></script>
+	<script src="source/class/Module/Test/Test.js"></script>
 
 	<script src="source/class/Workspace/LeftNavigationBar/LeftNavigationBar.js"></script>
 	<script src="source/class/Workspace/TopNavigationBar/TopNavigationBar.js"></script>
