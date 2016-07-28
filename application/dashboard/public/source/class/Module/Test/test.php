@@ -33,13 +33,30 @@
 
 
 
-<div class="col-lg-12">
 
-<?php include(__DIR__.'/fragment/dialog.php'); ?>
+<div class="container">
+	<div class="col-lg-12">
+		<div class="row">
+
+
+			<div class="col-sm-3">
+				<h1>JS Tree</h1>
+				<div id="data" class="demo"></div>
+			</div>
+
+			<div class="col-sm-3">
+				Right side
+			</div>
+
+
+		</div>
+	</div>
 </div>
 
 
 
+<?php include(__DIR__.'/fragment/dialog.php'); ?>
+
 
 
 
@@ -49,13 +66,7 @@
 
 
 
-	<div class="row">
-		<div class="col-sm-3">
-			<h1>JS Tree</h1>
-			<div id="data" class="demo"></div>
-		</div>
 
-	</div>
 
 
 

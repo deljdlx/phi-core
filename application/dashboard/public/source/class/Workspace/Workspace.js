@@ -1,21 +1,25 @@
 Bienvenue.Workspace=function()
 {
+
+
+
 	this.mainPanel=$('.bienvenue-panel-main');
 	this.leftNavigationBar=$('.navbar-default.sidebar');
 	this.topNavigationBar=$('.topNavigationBar');
+	this.rippleManager=new Bienvenue.Component.Ripple();
 
-
-
-	this.rippleManager=new Bienvenue.Component.Ripple();;
+	this.loadedModules={};
 
 }
 
 
-Bienvenue.Workspace.prototype.loadPanel=function(panelName) {
-	var panel=new Bienvenue.Module.Test(this);
-	panel.render();
-	//panel.afterRender();
+Bienvenue.Workspace.prototype.loadModule=function(name) {
+
+	var module=new Bienvenue.ModuleLoader(name, this);
+	this.loadedModules[name]=module;
+	module.load();
 };
+
 
 
 Bienvenue.Workspace.prototype.setMainContent=function(content) {
@@ -27,10 +31,9 @@ Bienvenue.Workspace.prototype.setMainContent=function(content) {
 
 Bienvenue.Workspace.prototype.run=function() {
 
-
-
 	this.initialize();
-	this.loadPanel('Test');
+
+	this.loadModule('Test')
 
 
 
@@ -186,6 +189,18 @@ Bienvenue.Workspace.prototype.initializeTooltip=function() {
 };
 
 
+
+
+
+
+Bienvenue.Workspace.prototype.ajax=function(options) {
+	return $.ajax(options);
+};
+
+
+Bienvenue.Workspace.prototype.getScript=function(url, callback) {
+	return $.getScript(url, callback);
+};
 
 
 
