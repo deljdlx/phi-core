@@ -60,28 +60,12 @@
 
 
 
+<div class="container">
+	<div class="col-lg-12">
+		<h1 class="page-header withripple">Dashboard</h1>
+		<?php include(__DIR__.'/social-button.php');?>
 
-<div class="col-lg-12">
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<h1 class="page-header withripple">Dashboard</h1>
-
-
-
-
-	<?php include(__DIR__.'/social-button.php');?>
-
+	</div>
 </div>
 
 
