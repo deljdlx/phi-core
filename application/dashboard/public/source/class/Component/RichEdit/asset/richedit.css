@@ -9,20 +9,23 @@
     transition: all 0.3s;
 }
 
+/*
 .editorPanel .leftPanel:hover{
     width: 500px;
     background-color:#CCC;
 }
+*/
 
 
 
 
-
-
-
-.note-editor {
-    width: 100%;
+.btn.btn-sm, .input-group-btn .btn.btn-sm, .btn-group-sm .btn, .btn-group-sm .input-group-btn .btn {
+    padding: 5px 8px;
+    font-size: 12px;
+    border: solid 1px #CCC;
+    background-color:#FFF;
 }
+
 
 
 
@@ -30,6 +33,17 @@
     box-shadow: none;
 }
 
+.note-popover .popover-content .dropdown-menu, .panel-heading.note-toolbar .dropdown-menu {
+    z-index:10000;
+}
+
+
+
+
+
+.note-editor {
+    width:100%;
+}
 
 
 
