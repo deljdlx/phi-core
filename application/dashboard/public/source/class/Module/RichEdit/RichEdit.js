@@ -24,7 +24,7 @@ Bienvenue.Module.RichEdit.prototype.run=function() {
 
 		loadComponent('Tree', function() {
 			var tree=new Bienvenue.Component.Tree();
-			tree.renderAjaxDemo('.leftPanel');
+			tree.renderAjaxDemo('.leftPanel .tree');
 
 		}.bind(this));
 

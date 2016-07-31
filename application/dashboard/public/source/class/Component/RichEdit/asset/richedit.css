@@ -3,18 +3,51 @@
 }
 
 
-.editorPanel .leftPanel{
+.editorPanel .leftPanel {
     width: 32px;
     background-color:#CCC;
     transition: all 0.3s;
 }
 
-/*
-.editorPanel .leftPanel:hover{
-    width: 500px;
-    background-color:#CCC;
+
+
+
+.editorPanel .leftPanel .content {
+    display: none;
 }
-*/
+
+.editorPanel .leftPanel.active {
+    background-color:#FFF;
+    width: 300px;
+}
+
+
+.editorPanel .leftPanel.active .content {
+
+    display: block;
+}
+
+
+
+.editorPanel .leftPanel .articleData {
+    padding: 8px;
+
+    border-bottom: solid 2px #AAA;
+    margin-bottom: 32px;
+}
+
+
+.editorPanel .leftPanel .triggerContainer {
+    text-align:right;
+    padding-right: 4px;
+    float: right;
+}
+
+.editorPanel .leftPanel .triggerContainer {
+
+}
+
+
 
 
 
