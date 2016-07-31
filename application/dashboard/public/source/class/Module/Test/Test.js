@@ -1,24 +1,23 @@
-Bienvenue.Module.Test=function(workspace)
+Bienvenue.Module.Test=function(workspace, url)
 {
-	this.workspace=workspace;
+	this.__construct(workspace, url);
 };
 
 
 
-Bienvenue.Module.Test.prototype.render=function() {
-	$.get('source/class/Module/Test/test.php', function(data) {
-		this.workspace.setMainContent(data);
-		this.afterRender();
+Bienvenue.Module.Test.prototype.run=function() {
 
+	this.loadView('test.php', function(viewData) {
+		this.workspace.setMainContent(viewData);
 
 
 		var tree=new Bienvenue.Component.Tree();
-		//tree.renderDemo('#data');
 		tree.renderAjaxDemo('#data');
+		this.workspace.initializeSummerNote('#summernote');
+		this.initializeGraph();
 
 
-
-	}.bind(this));
+	});
 };
 
 
@@ -26,12 +25,6 @@ Bienvenue.Module.Test.prototype.render=function() {
 
 
 
-
-Bienvenue.Module.Test.prototype.afterRender=function() {
-	this.workspace.initializeSummerNote('#summernote');
-
-	this.initializeGraph();
-}
 
 
 
@@ -161,5 +154,5 @@ Bienvenue.Module.Test.prototype.initializeGraph=function() {
 
 
 
-
-Bienvenue.extends(Bienvenue.Module.Test, Bienvenue.Module);
+//extend is set in ModuleLoader.js
+//inherit(Bienvenue.Module.Test, Bienvenue.Module);

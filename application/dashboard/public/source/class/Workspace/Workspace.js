@@ -1,23 +1,23 @@
 Bienvenue.Workspace=function()
 {
-
-
-
 	this.mainPanel=$('.bienvenue-panel-main');
 	this.leftNavigationBar=$('.navbar-default.sidebar');
 	this.topNavigationBar=$('.topNavigationBar');
 	this.rippleManager=new Bienvenue.Component.Ripple();
-
 	this.loadedModules={};
-
 }
+
+
+Bienvenue.Workspace.prototype.log=function(message, type) {
+	log(message, type);
+};
+
 
 
 Bienvenue.Workspace.prototype.loadModule=function(name) {
 
-	var module=new Bienvenue.ModuleLoader(name, this);
-	this.loadedModules[name]=module;
-	module.load();
+	var module=new Bienvenue.ModuleLoader(this);
+	module.load(name);
 };
 
 
@@ -33,12 +33,15 @@ Bienvenue.Workspace.prototype.run=function() {
 
 	this.initialize();
 
-	this.loadModule('Test')
-
-
 
 	this.initializeTopMenu();
 	this.initializeLeftMenu();
+
+
+	this.loadModule('RichEdit')
+	//this.loadModule('Test')
+
+
 
 };
 
@@ -194,12 +197,17 @@ Bienvenue.Workspace.prototype.initializeTooltip=function() {
 
 
 Bienvenue.Workspace.prototype.ajax=function(options) {
+
+	options.cache=false;
+
 	return $.ajax(options);
 };
 
 
+
+
 Bienvenue.Workspace.prototype.getScript=function(url, callback) {
-	return $.getScript(url, callback);
+	return getScript.apply(this, [url, callback]);
 };
 
 

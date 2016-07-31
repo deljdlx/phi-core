@@ -1,25 +1,54 @@
-Bienvenue.ModuleLoader=function(name, workspace)
+Bienvenue.ModuleLoader=function(workspace)
 {
-
-	this.name=name;
 	this.moduleURLRoot='source/class/Module';
+	this.moduleDescriptorFileName='descriptor.json';
 	this.workspace=workspace;
+	this.modules={};
 };
 
 
-Bienvenue.ModuleLoader.prototype.load=function(callback) {
+Bienvenue.ModuleLoader.prototype.load=function(name, callback) {
+
+	if(typeof(this.modules[name])!='undefined') {
+		return this.modules[name].run();
+	}
+
+	var moduleURL=this.moduleURLRoot+'/'+name;
+	var descriptorURL=this.moduleURLRoot+'/'+name+'/'+this.moduleDescriptorFileName;
+
+	this.workspace.log('Loading descriptor "'+descriptorURL+'"');
 
 	this.workspace.ajax({
-		url : this.moduleURLRoot+'/'+this.name+'/descriptor.json',
+		url : descriptorURL,
 		success: function(data) {
 
-			var scriptURL=this.moduleURLRoot+'/'+this.name+'/'+data.scripts[0];
+
+			var scriptURL=this.moduleURLRoot+'/'+name+'/'+data.scripts[0];
 			this.workspace.getScript(scriptURL, function() {
-				this.module=new Bienvenue.Module[data.name](this.workspace);
-				this.module.render();
+
+				this.workspace.log('Script "'+scriptURL+'" loaded');
+
+				if(typeof(Bienvenue.Module[data.name])=='undefined') {
+					throw new Exception('Module '+data.name+'does not exist');
+					return false;
+				}
+
+				inherit(Bienvenue.Module[data.name], Bienvenue.Module);
+
+				var module=new Bienvenue.Module[data.name](this.workspace, moduleURL);
+				this.modules[name]=module;
+
+				this.workspace.log('Running module "'+name+'"');
+
+				this.run(name);
 			}.bind(this));
 		}.bind(this)
 	});
+};
 
+
+
+Bienvenue.ModuleLoader.prototype.run=function(name) {
+	return this.modules[name].run();
 };
 

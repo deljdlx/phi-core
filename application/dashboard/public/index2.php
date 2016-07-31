@@ -58,9 +58,7 @@
 
 
 	<!-- Custom CSS -->
-
 	<link href="./vendor/bootstrap-pack/sb-admin/dist/css/sb-admin-2.css" rel="stylesheet">
-
 	<!--
 	<script src="./vendor/bootstrap-pack/sb-admin/dist/js/sb-admin-2.js"></script>
 	//-->
@@ -177,52 +175,30 @@
 
 	<body>
 
-		<div class="mainContainer">
 
 
 
-			<div class="topNavigationBar">Top</div>
+	<div id="wrapper">
 
-
-			<div class="bodyContainer">
-
-				<div class="leftMenuContainer">
-					<div class="navbar-default sidebar"></div>
-				</div>
-
-
-				<div class="bienvenue-panel-main">main</div>
-
-
-			</div>
-
-			<div class="bottomBar">Bottom</div>
-
-
-		</div>
-
-
-	<div>
-
-	</div>
-
-
-	<!--
-<div id="wrapper">
-
-
+		<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 		<div class="topNavigationBar"></div>
 		<div class="navbar-default sidebar" role="navigation"></div>
 	</nav>
 
 
+
+
+
 	<div id="page-wrapper">
 		<div class="row bienvenue-panel-main">
+			<!--main panel //-->
 		</div>
 	</div>
+	<!-- /#page-wrapper -->
+
 </div>
-//-->
+
 
 </body>
 

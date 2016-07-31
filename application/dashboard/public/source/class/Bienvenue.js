@@ -1,5 +1,5 @@
-var Bienvenue={
-	Component:{}
+var Bienvenue=function() {
+
 };
 
 
@@ -12,3 +12,8 @@ Bienvenue.extends=function(destinationClass, fromClass) {
 		}
 	}
 }
+
+
+Bienvenue.log=function(message, type) {
+	console.debug(message);
+};
