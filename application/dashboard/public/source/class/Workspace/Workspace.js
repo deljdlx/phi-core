@@ -38,8 +38,9 @@ Bienvenue.Workspace.prototype.run=function() {
 	this.initializeLeftMenu();
 
 
-	this.loadModule('RichEdit')
-	//this.loadModule('Test')
+	//this.loadModule('RichEdit')
+	this.loadModule('Test')
+	//this.loadModule('Blank')
 
 
 

@@ -12,11 +12,7 @@
 <head>
 
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
 
 	<title>SB Admin 2 - Bootstrap Admin Theme</title>
 
@@ -125,6 +121,15 @@
 
 
 
+
+	<script src="vendor/khi/Khi.js"></script>
+	<script src="vendor/khi/Request.js"></script>
+	<script src="vendor/khi/Router.js"></script>
+	<script src="vendor/khi/RouterRule.js"></script>
+
+
+
+
 	<script src="source/helper/function.js"></script>
 	<script src="source/class/Bienvenue.js"></script>
 	<script src="source/class/Component.js"></script>
@@ -157,6 +162,19 @@
 
 				var workspace=new Bienvenue.Workspace();
 				workspace.run();
+
+				var router=new Khi.Router();
+
+				router.addRule('blii', function(request) {
+					if(request.url.match(/foo/)) {
+						return true;
+					}
+				}, function(request) {
+					console.debug(request);
+				})
+
+				router.run();
+
 			});
 		</script>
 
