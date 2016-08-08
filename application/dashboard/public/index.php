@@ -35,7 +35,11 @@
 
 
 	<!-- Bootstrap Core -->
+
 	<link href="./vendor/bootstrap-pack/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
 	<script src="./vendor/bootstrap-pack/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
@@ -55,7 +59,9 @@
 
 	<!-- Custom CSS -->
 
+
 	<link href="./vendor/bootstrap-pack/sb-admin/dist/css/sb-admin-2.css" rel="stylesheet">
+
 
 	<!--
 	<script src="./vendor/bootstrap-pack/sb-admin/dist/js/sb-admin-2.js"></script>
@@ -165,12 +171,13 @@
 
 				var router=new Khi.Router();
 
-				router.addRule('blii', function(request) {
-					if(request.url.match(/foo/)) {
+				router.addRule('moduleLoader', function(request) {
+					if(request.url.match(/#module=.+/)) {
 						return true;
 					}
 				}, function(request) {
-					console.debug(request);
+					var moduleName=request.anchorParameters.module;
+					workspace.loadModule(moduleName)
 				})
 
 				router.run();

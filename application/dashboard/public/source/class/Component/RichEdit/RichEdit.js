@@ -98,8 +98,7 @@ Bienvenue.Component.RichEdit.prototype.computeHeight=function() {
 
 	if($(this.containerElement).height()+this.toolbar.height()>this.mainPanel.height()) {
 
-		var height=$('.bienvenue-panel-main').height()-this.toolbar.height()-16;
-
+		var height=$('.bienvenue-panel-main').height()-this.toolbar.height()-48;
 		$('.note-editable').height(height);
 
 	}
@@ -123,9 +122,12 @@ Bienvenue.Component.RichEdit.prototype.renderDemo=function(selector) {
 		this.defaultOptions.height=$(selector).get(0).offsetHeight;
 		this.containerElement.summernote(this.defaultOptions);
 
+
+
 		this.adaptHeightInterval=setInterval(function() {
 			this.computeHeight();
 		}.bind(this), 300);
+
 
 
 

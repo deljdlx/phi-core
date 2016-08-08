@@ -18,6 +18,8 @@ Bienvenue.Workspace.TopNavigationBar = React.createClass({
 
 	componentDidMount: function() {
 
+		Bienvenue.loadCSS('source/class/Workspace/TopNavigationBar/topnavigationbar.css');
+
 		$.get('source/class/Workspace/TopNavigationBar/nav-top.php').done(function(data) {
 			this.setState({
 				html: data

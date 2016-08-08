@@ -14,8 +14,23 @@
 			</li>
 
 
+
+			<li>
+				<a href="#module=Blank"><i class="fa fa-dashboard fa-fw"></i> Blank</a>
+			</li>
+
 			<li>
 				<a href="#module=Test"><i class="fa fa-dashboard fa-fw"></i> Exemples</a>
+			</li>
+
+			<li>
+				<a href="#module=RichEdit"><i class="fa fa-dashboard fa-fw"></i> Rich Edit</a>
+			</li>
+
+
+
+			<li>
+				<a href="#module=404"><i class="fa fa-dashboard fa-fw"></i> 404</a>
 			</li>
 
 

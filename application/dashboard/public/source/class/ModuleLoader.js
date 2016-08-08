@@ -1,5 +1,7 @@
 Bienvenue.ModuleLoader=function(workspace)
 {
+	this.errorModuleName='Module404';
+
 	this.moduleURLRoot='source/class/Module';
 	this.moduleDescriptorFileName='descriptor.json';
 	this.workspace=workspace;
@@ -29,7 +31,8 @@ Bienvenue.ModuleLoader.prototype.load=function(name, callback) {
 				this.workspace.log('Script "'+scriptURL+'" loaded');
 
 				if(typeof(Bienvenue.Module[data.name])=='undefined') {
-					throw new Exception('Module '+data.name+'does not exist');
+					//throw new Exception('Module '+data.name+'does not exist');
+					this.load(this.errorModuleName);
 					return false;
 				}
 
@@ -42,7 +45,11 @@ Bienvenue.ModuleLoader.prototype.load=function(name, callback) {
 
 				this.run(name);
 			}.bind(this));
+		}.bind(this),
+		error: function() {
+			this.load(this.errorModuleName);
 		}.bind(this)
+
 	});
 };
 

@@ -17,3 +17,13 @@ Bienvenue.extends=function(destinationClass, fromClass) {
 Bienvenue.log=function(message, type) {
 	console.debug(message);
 };
+
+
+
+Bienvenue.loadCSS=function(url) {
+	$("<link/>", {
+		rel: "stylesheet",
+		type: "text/css",
+		href: url
+	}).appendTo("head");
+};

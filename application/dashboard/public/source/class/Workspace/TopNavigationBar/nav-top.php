@@ -5,10 +5,18 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	</button>
-	<a class="navbar-brand" href="index.html">SB Admin v2.0</a>
+	<a class="navbar-brand" href="index.html">Bienvenue</a>
 </div>
 
 <ul class="nav navbar-top-links navbar-right">
+
+
+
+
+
+
+
+
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
 			<i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -59,6 +67,18 @@
 		</ul>
 		<!-- /.dropdown-messages -->
 	</li>
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- /.dropdown -->
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -138,6 +158,18 @@
 		</ul>
 		<!-- /.dropdown-tasks -->
 	</li>
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- /.dropdown -->
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -198,6 +230,13 @@
 		</ul>
 		<!-- /.dropdown-alerts -->
 	</li>
+
+
+
+
+
+
+
 	<!-- /.dropdown -->
 	<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -214,5 +253,17 @@
 		</ul>
 		<!-- /.dropdown-user -->
 	</li>
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- /.dropdown -->
 </ul>

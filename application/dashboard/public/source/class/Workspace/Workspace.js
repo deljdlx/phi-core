@@ -39,8 +39,8 @@ Bienvenue.Workspace.prototype.run=function() {
 
 
 	//this.loadModule('RichEdit')
-	this.loadModule('Test')
-	//this.loadModule('Blank')
+	//this.loadModule('Test')
+	this.loadModule('Blank')
 
 
 

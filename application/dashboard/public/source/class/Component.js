@@ -15,12 +15,7 @@ Bienvenue.Component.prototype.loadCSS=function(files) {
 		log('Loading css "'+this.baseURL+'/'+files[i]+'"');
 
 		var cssURL=this.baseURL+'/'+files[i]+'?'+Math.random();
-
-		$("<link/>", {
-			rel: "stylesheet",
-			type: "text/css",
-			href: cssURL
-		}).appendTo("head");
+		Bienvenue.loadCSS(cssURL);
 	}
 }
 
