@@ -128,6 +128,18 @@
 
 
 
+<script>
+
+
+
+
+
+</script>
+
+
+
+
+
 	<script src="vendor/khi/Khi.js"></script>
 	<script src="vendor/khi/Request.js"></script>
 	<script src="vendor/khi/Router.js"></script>

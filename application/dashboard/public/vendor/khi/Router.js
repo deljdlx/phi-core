@@ -11,7 +11,7 @@ Khi.Router=function()
 
 
 	this.location=document.location.toString();
-	this.lastLocation=this.location;
+	this.lastLocation=null;
 
 
 

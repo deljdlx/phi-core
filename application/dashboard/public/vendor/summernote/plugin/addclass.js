@@ -67,81 +67,27 @@
 							var cssclass = item.value ? ' class="' + item.value + '" ' : '';
 							return '<' + tag + ' ' + style + cssclass + '>' + title + '</' + tag + '>';
 						},
-						click: function (event, namespace, value) {
 
-
-							console.debug(event.target);
-
+						click:  function (event, namespace, value) {
 
 							event.preventDefault();
-							value = value || $(event.target).closest('[data-value]').data('value');
 
+							namespace='editor.formatBlock';
+							value=event.target.tagName;
+							context.invoke(namespace, value || $(event.target).closest('[data-value]').data('value'));
 
+							//search first parent paragraph node
 
-							var $node = $(context.invoke("restoreTarget"))
-							if ($node.length==0){
-								$node = $(document.getSelection().focusNode.parentElement, ".note-editable");
+							var range=context.invoke('createRange');
+							var containerNode=range.ec;
+
+							var parent=$(containerNode).parent('div,p, h1, h2, h3, h4, h5, h6, blockquote, aside');
+
+							if(parent.length) {
+								console.debug(event.target);
+								parent.addClass(event.target.className);
 							}
-
-							if (typeof context.options.addclass !== 'undefined' && typeof context.options.addclass.debug !== 'undefined' && context.options.addclass.debug) {
-								console.debug(context.invoke("restoreTarget"), $node, "toggling class: " + value, window.getSelection());
-							}
-
-
-
-							var tagName=event.target.tagName;
-
-
-
-							/*
-							var element=$node.get(0);
-							var caretOffset = 0;
-							var doc = element.ownerDocument || element.document;
-							var win = doc.defaultView || doc.parentWindow;
-							var sel;
-							if (typeof win.getSelection != "undefined") {
-								sel = win.getSelection();
-								if (sel.rangeCount > 0) {
-									var range = win.getSelection().getRangeAt(0);
-									var preCaretRange = range.cloneRange();
-									preCaretRange.selectNodeContents(element);
-									preCaretRange.setEnd(range.endContainer, range.endOffset);
-									caretOffset = preCaretRange.toString().length;
-								}
-							} else if ( (sel = doc.selection) && sel.type != "Control") {
-								var textRange = sel.createRange();
-								var preCaretTextRange = doc.body.createTextRange();
-								preCaretTextRange.moveToElementText(element);
-								preCaretTextRange.setEndPoint("EndToEnd", textRange);
-								caretOffset = preCaretTextRange.text.length;
-							}
-							*/
-
-
-
-							var sel = window.getSelection();
-
-
-
-							var newNode=$('<'+tagName+' class="'+value+'">'+$node.html()+'</'+tagName+'>');
-							$node.replaceWith(newNode);
-
-							var range = document.createRange();
-
-							range.setStart(newNode.get(0), 1);
-							range.collapse(true);
-							sel.removeAllRanges();
-							sel.addRange(range);
-							$(context.invoke("saveRange"));
-
-							//$node.get(0).className='';
-							//$ode.addClass(value);
-
-
-							//$node.toggleClass(value)
-
-
-						}
+						},
 					})
 				]).render();
 				return $optionList;

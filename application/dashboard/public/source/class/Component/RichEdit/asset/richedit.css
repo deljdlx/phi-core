@@ -122,3 +122,11 @@
 .note-editing-area p.copyright:before {
     content: '\f1f9';
 }
+
+
+
+.modal-header .close {
+    background-color:#CCC;
+    padding: 4px;
+    z-index:2;
+}

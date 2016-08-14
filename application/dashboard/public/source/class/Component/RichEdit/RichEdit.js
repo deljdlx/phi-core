@@ -4,6 +4,8 @@ Bienvenue.Component.RichEdit=function()
 	this.containerElement=null;
 	this.selector=null;
 
+	var self=this;
+
 
 	var SaveButton = function (context) {
 		var ui = $.summernote.ui;
@@ -21,19 +23,34 @@ Bienvenue.Component.RichEdit=function()
 
 
 
+
+	var PopupButton = function (context) {
+		var ui = $.summernote.ui;
+		// create button
+		var button = ui.button({
+			contents: '<i class="fa fa-floppy-o"/>',
+			tooltip: 'Sauver',
+			click: function () {
+
+				self.saveRange();
+
+				self.openDialog('<div>Test : <input class="injectContent form-control"/>', 'Test', function() {
+					self.insertHTML('<img src="'+$('.injectContent').val()+'"/>');
+				})
+			}
+		});
+		return button.render();   // return button as jquery object
+	};
+
+
 	this.defaultOptions={
 		lang: 'fr-FR',
 		height: '500',
 
 		//styleTags: ['p.copyright', 'blockquote', 'pre'],
 
-
-
-
-
 		addclass: {
 			debug: false,
-			//classTags: [{title:"Button",value:"btn btn-success"},"jumbotron", "lead","img-rounded","img-circle", "img-responsive","btn", "btn btn-success","btn btn-danger","text-muted", "text-primary", "text-warning", "text-danger", "text-success", "table-bordered", "table-responsive", "alert", "alert alert-success", "alert alert-info", "alert alert-warning", "alert alert-danger", "visible-sm", "hidden-xs", "hidden-md", "hidden-lg", "hidden-print"]
 			classTags: [
 				{title:"Normal",value:"normal", tag: 'p'},
 				{title:"Copyright",value:"copyright", tag: 'p'},
@@ -51,18 +68,19 @@ Bienvenue.Component.RichEdit=function()
 
 		toolbar: [
 			// [groupName, [list of button]]
-			['style', ['addclass', 'bold', 'italic', 'underline', 'clear']],
+			['style', ['style', 'addclass', 'bold', 'italic', 'underline', 'clear']],
 			['object', ['picture', 'link', 'table', 'hr']],
 			['font', ['superscript']],
 			['fontsize', ['fontsize']],
 			['color', ['color']],
 			['para', ['ul', 'ol', 'paragraph']],
 
-			['action', ['save']],
+			['action', ['save', 'popup']],
 			//['height', ['height']]
 		],
 		buttons: {
-			save: SaveButton
+			save: SaveButton,
+			popup: PopupButton
 		},
 		callbacks: {
 			onInit: function() {
@@ -74,9 +92,83 @@ Bienvenue.Component.RichEdit=function()
 	this.loadCSS([
 		'asset/richedit.css'
 	]);
+};
+
+
+Bienvenue.Component.RichEdit.prototype.saveRange=function() {
+	this.context.invoke('saveRange');
+};
+
+Bienvenue.Component.RichEdit.prototype.restoreRange=function() {
+	this.context.invoke('restoreRange');
+};
+
+
+
+Bienvenue.Component.RichEdit.prototype.insertHTML=function(html) {
+
+	this.restoreRange();
+	this.focus();
+	this.context.invoke('editor.pasteHTML', html);
 
 };
 
+
+Bienvenue.Component.RichEdit.prototype.openDialog=function(content, title, validationCallback) {
+	var dialog=$(
+		'<div id="complete-dialog" class="modal fade in" tabindex="-1" style="display: block; padding-right: 16px;">'+
+			'<div class="modal-dialog">'+
+				'<div class="modal-content">'+
+
+
+
+
+					'<div class="modal-header">'+
+						'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>'+
+						'<h4 class="modal-title">'+title+'</h4>'+
+					'</div>'+
+
+
+
+					'<div class="modal-body">'+
+						content+
+					'</div>'+
+					'<div class="modal-footer">'+
+					'</div>'+
+				'</div>'+
+			'</div>'+
+		'</div>'
+	);
+
+
+	var validate=$(
+		'<button type="button" class="btn btn-primary" data-dismiss="modal">Valider</button>'
+	);
+
+	validate.click(function() {
+		validationCallback(this)
+	}.bind(this));
+
+
+
+	var dismiss=$(
+		'<button type="button" class="btn btn-primary" data-dismiss="modal">Annuler</button>'
+	);
+
+
+	dialog.find('.modal-footer').append(validate);
+	dialog.find('.modal-footer').append(dismiss);
+
+	dialog.modal();
+
+	dialog.on('hidden.bs.modal', function () {
+		//alert(1);
+		dialog.remove();
+	});
+
+
+
+};
 
 
 Bienvenue.Component.RichEdit.prototype.computeHeight=function() {
@@ -120,7 +212,12 @@ Bienvenue.Component.RichEdit.prototype.renderDemo=function(selector) {
 
 
 		this.defaultOptions.height=$(selector).get(0).offsetHeight;
-		this.containerElement.summernote(this.defaultOptions);
+
+
+
+
+		this.editor=this.containerElement.summernote(this.defaultOptions);
+		this.context=this.editor.data('summernote');
 
 
 
