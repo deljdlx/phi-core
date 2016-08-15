@@ -80,11 +80,11 @@
 
 
 
-.note-editing-area h1 {
+.richEdit h1 {
     /*color:#F00;*/
 }
 
-.note-editing-area h1:before {
+.richEdit h1:before {
     font-family: fontawesome;
     margin-right: 8px;
     content: '\f0a3';
@@ -93,12 +93,12 @@
 
 
 
-.note-editing-area blockquote {
+.richEdit blockquote {
     border-left: solid 8px #CCC;
 }
 
 
-.note-editing-area p:before {
+.richEdit  p:before {
     font-family: fontawesome;
     content: '\f1dd';
     color: #AAA;
@@ -108,18 +108,18 @@
 
 
 
-.note-editing-area p.introduction:before {
+.richEdit p.introduction:before {
     content: '\f0e5 ';
 }
 
 
 
-.note-editing-area p.chapo:before {
+.richEdit p.chapo:before {
     content: '\f006 ';
 }
 
 
-.note-editing-area p.copyright:before {
+p.copyright:before {
     content: '\f1f9';
 }
 
