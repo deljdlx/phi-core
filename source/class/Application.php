@@ -14,7 +14,7 @@ use Phi\Interfaces\Router;
  * @package Phi
  */
 
-class Application
+class Application extends Object
 {
 
 
@@ -26,6 +26,11 @@ class Application
 
 	protected $router;
 	protected $datasources;
+
+
+	protected $output='';
+
+	protected $returnValue=0;
 
 
 	/**
@@ -49,15 +54,31 @@ class Application
 		static::$instances[$name]=$this;
 	}
 
-	public function run() {
+	public function run($flush=false) {
 
 		if($this->router) {
-			return $this->router->run();
+
+			ob_start();
+			$this->returnValue=$this->router->run();
+			$this->output=ob_get_clean();
+			if($flush) {
+				echo $this->getOutput();
+			}
+			return $this->returnValue;
 		}
 		else {
-			return false;
+			throw new Exception('Application does not have an instance of "Phi\Interfaces\Router" defined');
 		}
+	}
 
+
+	public function getReturnValue() {
+		return $this->returnValue;
+	}
+
+
+	public function getOutput() {
+		return $this->output;
 	}
 
 
@@ -81,22 +102,18 @@ class Application
 
 
 
-
-
-
-	public function initializeRouter() {
-		$this->router=new \Phi\Router();
+	public function getDefaultRouter() {
+		return new \Phi\Routing\Router();
 	}
 
 
-	public function get($route, $callback) {
 
+	public function get($route, $callback) {
 		if(!$this->router instanceof Router) {
-			$this->initializeRouter();
+			$this->setRouter($this->getDefaultRouter());
 		}
 
 		$this->router->get($route, $callback);
-
 		return $this;
 
 	}

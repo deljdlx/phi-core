@@ -85,6 +85,8 @@
 
 							if(parent.length) {
 								console.debug(event.target);
+								parent.get(0).className='';
+
 								parent.addClass(event.target.className);
 							}
 						},

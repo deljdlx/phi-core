@@ -2,7 +2,7 @@
 namespace Phi;
 
 
-class Event
+class Event extends Object
 {
 
     public $name='event';

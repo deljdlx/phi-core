@@ -2,18 +2,17 @@
 
 require(__DIR__.'/../../bootstrap.php');
 
-includePhiModule('Frontend');
-
-ini_set('display_errors', 'on');
 
 
+
+
+
+
+
+
+
+/*
 $dom=new \Phi\Module\Frontend\DOMTemplate();
-
-
-
-
-
-
 $template='
 	<html>
 		<div>
@@ -27,5 +26,6 @@ $template='
 echo $dom->render($template, array(
 	'.test'=>'hello world'
 ));
+*/
 
 

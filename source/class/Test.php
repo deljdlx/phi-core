@@ -9,7 +9,7 @@ namespace Phi;
  */
 
 
-class Test
+class Test extends Object
 {
 
     protected $skipMethods=array(

@@ -24,11 +24,11 @@ ini_set('display_errors', 'on');
 
 
 
-$request=\Phi\Request::getInstance();
+$request=\Phi\Routing\Request::getInstance();
 //$request=null;
 
 
-$router=new \Phi\Router();
+$router=new \Phi\Routing\Router();
 
 $route=$router->get(function() {
     $this->parameters['test']='yala ça marche';
@@ -44,9 +44,6 @@ $route=$router->get(function() {
 
 $router->run($request);
 
-
-
-die('EXIT '.__FILE__.'@'.__LINE__);
 
 
 $tests=rglob(realpath(__DIR__.'/../test').'/*.test.php');

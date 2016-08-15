@@ -4,7 +4,7 @@ namespace Phi;
 
 
 
-class Controller
+class Controller extends Object
 {
 
 

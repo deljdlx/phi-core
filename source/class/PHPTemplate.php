@@ -6,7 +6,7 @@ namespace Phi;
 
 use Phi\Traits\Collection;
 
-class PHPTemplate
+class PHPTemplate extends Object
 {
 
 
@@ -44,7 +44,12 @@ class PHPTemplate
 		}
 
 
-		if(is_file(escapeshellcmd($this->template)) && realpath($this->template)) {
+
+
+
+		if(is_file($this->template) && realpath($this->template)) {
+
+
 			ob_start();
 			extract($this->getVariables());
 			include($template);

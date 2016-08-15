@@ -119,7 +119,7 @@ html, body {
 
 .bodyContainer {
     /*flex:1; background-color:#FAF;*/
-    min-height: calc(100% - 96px);
+    height: calc(100% - 96px);
     display: flex;
     flex-direction: row
 }

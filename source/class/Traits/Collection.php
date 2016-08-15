@@ -6,11 +6,6 @@ use Premium\Cache\Blackhole;
 use Premium\Interfaces\CacheDriver;
 
 
-/*
- *
- * @var \Premium\Interfaces\CacheDriver $cacheDriver
- */
-
 Trait Collection
 {
 
