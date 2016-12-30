@@ -10,6 +10,11 @@ if(!defined('PHI_INITIALIZED')) {
     }
     registerNamespace('Phi', __DIR__.'/source/class');
 
+
+    //@TODO autoload modules
+    include(__DIR__.'/source/Module/DOMTemplate/bootstrap.php');
+
+
     define('PHI_INITIALIZED', true);
 }
 

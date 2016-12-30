@@ -9,13 +9,12 @@ Trait MustacheTemplate
 
 
 
-    public function render($template, $variables=array()) {
+
+    public function compileMustache($buffer, $variables) {
         $mustacheEngine=new \Mustache_Engine();
-        $compiled=$mustacheEngine->render($template, $variables);
+        $compiled=$mustacheEngine->render($buffer, $variables);
 
         return $compiled;
     }
-
-
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-registerNamespace('Phi\Module\Frontend', __DIR__.'/source/class');
+registerNamespace('Phi\Module\DOMTemplate', __DIR__.'/source/class');
 
 
 include(__DIR__ . '/vendor/mustache/src/Mustache/Autoloader.php');

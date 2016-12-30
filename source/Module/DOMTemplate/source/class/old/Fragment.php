@@ -1,6 +1,6 @@
 <?php
 
-namespace CapitalSite\DOMTemplate\Bridge;
+namespace CapitalSite\Frontend\Bridge;
 
 
 use CapitalSite\Frontend\Component\Error;
@@ -26,7 +26,7 @@ class Fragment
 
 
     public function __construct($node) {
-
+        libxml_use_internal_errors(true);
         $this->loadFromDomNode($node);
     }
 
@@ -101,7 +101,7 @@ class Fragment
 
 
     protected function convertNodeToString($node) {
-        $valueDocument=new DOMDocument();
+        $valueDocument=new DOMDocument('1.0', 'utf-8');
         $clone=$node->cloneNode(true);
         $importedNode=$valueDocument->importNode($clone, true);
         $valueDocument->appendChild($importedNode);
@@ -141,7 +141,7 @@ class Fragment
                 if(!$component || !($component instanceof \CapitalSite\Frontend\Bridge\Component)) {
                     $componentName=$componentNode->getAttribute('name');
                     $component=new Error();
-                    $component->set('componentName', $componentName);
+                    $component->setVariable('componentName', $componentName);
                     $componentOutput=$component->encapsulateHTML($component->render(), $injectInlineAsset);
                 }
                 else {
@@ -153,9 +153,10 @@ class Fragment
                     if($parametersNodes->length) {
                         //on extracte les valeurs des paramètres
                         foreach ($parametersNodes as $parameterNode) {
+
                             $parameterName=(string) $parameterNode->getAttribute('data-parameter');
-                            $parameterValue=(string) $parameterNode->getAttribute('data-value');
-                            $component->set($parameterName, $parameterValue);
+                            $parameterValue=html_entity_decode((string) $parameterNode->getAttribute('data-value'));
+                            $component->setVariable($parameterName, $parameterValue);
                         }
                     }
                     $componentOutput=$component->encapsulateHTML($component->render(), $injectInlineAsset);
@@ -170,8 +171,8 @@ class Fragment
     protected function replaceNodeWithContent($containerNode, $content) {
 
         $xml='<'.static::XML_VALUE_ROOT_NODE_NAME.'>'.$content.'</'.static::XML_VALUE_ROOT_NODE_NAME.'>';
-        $valueDocument=new DOMDocument();
-        @$valueDocument->loadHTML('<?xml encoding="utf-8" ?>'.$xml);
+        $valueDocument=new DOMDocument('1.0', 'utf-8');
+        $valueDocument->loadHTML('<?xml encoding="utf-8" ?>'.$xml, \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD);
 
         $xPath=new DOMXPath($valueDocument);
         $query='//'.static::XML_VALUE_ROOT_NODE_NAME.'/*';
@@ -229,13 +230,6 @@ class Fragment
 
         $this->compilePHPComponents();
         $this->compileInlineComponents();
-
-        /*
-        $newdoc = new DOMDocument();
-        $cloned = $this->node->cloneNode(true);
-        $newdoc->appendChild($newdoc->importNode($cloned, true));
-        $this->value=$newdoc->saveHTML();
-        */
 
     }
 
