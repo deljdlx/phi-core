@@ -8,6 +8,7 @@ use Phi\Exception;
 
 class Route
 {
+
     protected $validator;
     protected $callback;
     protected $verbs=array();
@@ -15,25 +16,71 @@ class Route
 
     protected $headers=array();
 
+    protected $isLast=false;
 
-    public function __construct($verbs, $validator, $callback, $headers=array()) {
+
+    protected $builder;
+
+
+    public function __construct($verbs, $validator, $callback, $headers=array(), $builder=null) {
         $this->validator=$validator;
         $this->callback=$callback;
         $this->verbs=array($verbs);
         $this->headers=$headers;
+        $this->builder=$builder;
     }
 
 
-    public function validate() {
+
+    public function header($name, $value) {
+        $this->headers[$name]=$value;
+        return $this;
+    }
+
+    public function getHeaders() {
+        return $this->headers;
+    }
 
 
-        $callString=$_SERVER['REQUEST_URI'];
+
+    public function isLast($value=null) {
+        if($value!==null) {
+            $this->isLast=$value;
+        }
+
+        return $this->isLast;
+    }
+
+
+
+    public function build(/*$parameter*/) {
+
+        if(is_callable($this->builder)) {
+            return call_user_func_array(
+                $this->builder,
+                func_get_args()
+            );
+        }
+        else {
+            throw new Exception('Route does not have un builder function');
+        }
+
+    }
+
+    public function validate($request=null) {
+
+        if(!$request) {
+            $request=new RouterRequest();
+        }
+
+
+        $callString=$request->getURI();
+        $method = strtolower($request->getMethod());
 
 
         if(is_string($this->validator)) {
             $matches=array();
-
-            if(preg_match_all($this->validator, $callString, $matches)) {
+            if(in_array($method, $this->verbs) && preg_match_all($this->validator, $callString, $matches)) {
 
                 if(!empty($matches)) {
                     array_shift($matches);
@@ -76,9 +123,17 @@ class Route
 
     }
 
-    public function execute() {
+    public function execute($request=null) {
 
-        $reflector=new \ReflectionFunction($this->callback);
+
+        if(is_array($this->callback)) {
+            $reflector=new \ReflectionMethod($this->callback[0], $this->callback[1]);
+        }
+        else {
+            $reflector=new \ReflectionFunction($this->callback);
+        }
+
+
         $parameters=$reflector->getParameters();
 
 
@@ -101,12 +156,24 @@ class Route
         }
 
 
-        $callback=$this->callback->bindTo($this, $this);
 
-        return call_user_func_array(
-            array($callback, '__invoke'),
-            $callParameters
-        );
+
+        if(is_array($this->callback)) {
+            $buffer=call_user_func_array(
+                $this->callback,
+                $callParameters
+            );
+            return $buffer;
+        }
+        else if($this->callback instanceof \Closure) {
+            $buffer=call_user_func_array(
+                array($this->callback, '__invoke'),
+                $callParameters
+            );
+            return $buffer;
+        }
+
+        return false;
 
 
     }
@@ -114,11 +181,6 @@ class Route
     public function getParameters() {
         return $this->parameters;
     }
-
-    public  function getHeaders() {
-        return $this->headers;
-    }
-
 
 
 }
