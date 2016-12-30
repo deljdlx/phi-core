@@ -1,0 +1,132 @@
+.editorPanel {
+    display: flex;
+}
+
+
+.editorPanel .leftPanel {
+    width: 32px;
+    background-color:#CCC;
+    transition: all 0.3s;
+}
+
+
+
+
+.editorPanel .leftPanel .content {
+    display: none;
+}
+
+.editorPanel .leftPanel.active {
+    background-color:#FFF;
+    width: 300px;
+}
+
+
+.editorPanel .leftPanel.active .content {
+
+    display: block;
+}
+
+
+
+.editorPanel .leftPanel .articleData {
+    padding: 8px;
+
+    border-bottom: solid 2px #AAA;
+    margin-bottom: 32px;
+}
+
+
+.editorPanel .leftPanel .triggerContainer {
+    text-align:right;
+    padding-right: 4px;
+    float: right;
+}
+
+.editorPanel .leftPanel .triggerContainer {
+
+}
+
+
+
+
+
+
+.btn.btn-sm, .input-group-btn .btn.btn-sm, .btn-group-sm .btn, .btn-group-sm .input-group-btn .btn {
+    padding: 5px 8px;
+    font-size: 12px;
+    border: solid 1px #CCC;
+    background-color:#FFF;
+}
+
+
+
+
+.note-editor.panel {
+    box-shadow: none;
+}
+
+.note-popover .popover-content .dropdown-menu, .panel-heading.note-toolbar .dropdown-menu {
+    z-index:10000;
+}
+
+
+
+
+
+.note-editor {
+    width:100%;
+}
+
+
+
+.richEdit h1 {
+    /*color:#F00;*/
+}
+
+.richEdit h1:before {
+    font-family: fontawesome;
+    margin-right: 8px;
+    content: '\f0a3';
+    color: #CCC;
+}
+
+
+
+.richEdit blockquote {
+    border-left: solid 8px #CCC;
+}
+
+
+.richEdit  p:before {
+    font-family: fontawesome;
+    content: '\f1dd';
+    color: #AAA;
+    margin-right: 8px;
+}
+
+
+
+
+.richEdit p.introduction:before {
+    content: '\f0e5 ';
+}
+
+
+
+.richEdit p.chapo:before {
+    content: '\f006 ';
+}
+
+
+p.copyright:before {
+    content: '\f1f9';
+}
+
+
+
+.modal-header .close {
+    background-color:#CCC;
+    padding: 4px;
+    z-index:2;
+}

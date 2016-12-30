@@ -1,33 +1,18 @@
 <?php
-include(__DIR__.'/class/Autoloader.php');
-include(__DIR__.'/helper/string.php');
+
+if(!defined('PHI_INITIALIZED')) {
+    include(__DIR__.'/source/class/Autoloader.php');
+    $helpers=glob(__DIR__.'/source/helper/*.php');
 
 
-function registerNamespace($namespace, $folder) {
-    static $autoloader;
-    static $componentAutoloader;
-    if(!$autoloader) {
-        $autoloader=new \Phi\Autoloader();
-        spl_autoload_register(function($calledClassName) use ($autoloader) {
-            $autoloader->autoload($calledClassName);
-        });
+    foreach ($helpers as $helper) {
+        include($helper);
     }
-    $autoloader->addNamespace($namespace, $folder);
+    registerNamespace('Phi', __DIR__.'/source/class');
 
-
-    if(!$componentAutoloader) {
-        $componentAutoloader=new \Phi\PackageAutoloader();
-        spl_autoload_register(function($calledClassName) use ($componentAutoloader) {
-            $componentAutoloader->autoload($calledClassName);
-        });
-    }
-    $componentAutoloader->addNamespace($namespace, $folder);
-
-
-
+    define('PHI_INITIALIZED', true);
 }
 
-registerNamespace('Phi', __DIR__.'/class');
 
 
 

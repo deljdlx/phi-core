@@ -1,0 +1,7 @@
+{
+  "name": "RichEdit",
+  "scripts": [
+      "RichEdit.js"
+    ],
+    "css": []
+}
