@@ -4,7 +4,7 @@ use Phi\Object;
 class Route extends Object implements \Phi\Interfaces\Route
 {
 
-    
+
     protected $validator;
     protected $callback;
     protected $verbs=array();
