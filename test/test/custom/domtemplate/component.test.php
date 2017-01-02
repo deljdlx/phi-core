@@ -3,7 +3,6 @@
 
 require(__DIR__.'/../../../bootstrap.php');
 
-
 $template='<button>Composant bouton</button>';
 $test=new \Phi\Module\DOMTemplate\Component($template);
 echo $test->render();
@@ -135,6 +134,81 @@ echo $test->render();
 echo '<hr/>';
 
 //=======================================================
+
+
+
+
+class TestComponent2 extends \Phi\Module\DOMTemplate\Component
+{
+	public function render($template=null, $values=null) {
+		return '<button>'.$this->getVariable('content').'</button>';
+	}
+}
+
+
+$template='
+    <div style="border: solid 3px #002a80; padding: 10px;">
+
+        Composant container avec composant
+
+       <div>
+
+            <phi-component data-instanceof="TestComponent2">
+                <meta  data-attribute-name="content">{{{content}}}</meta>
+            </phi-component>
+            
+       </div>
+    </div>
+';
+
+$test=new \Phi\Module\DOMTemplate\Template($template);
+$test->setVariable('content', 'Contenu injecté dans le composant');
+$test->enableComponents(true);
+
+echo 'ici';
+echo $test->render();
+echo '<hr/>';
+
+
+//=======================================================
+
+
+
+
+class TestComponent3 extends \Phi\Module\DOMTemplate\Component
+{
+	public function render($template=null, $values=null) {
+		return '<button>'.$this->getVariable('content').'</button>';
+	}
+}
+
+
+$template='
+    <div style="border: solid 3px #002a80; padding: 10px;">
+
+        Composant container avec composant
+
+       <div>
+
+            <phi-component data-instanceof="TestComponent3">
+                <meta  data-attribute-name="content">{{{content}}}</meta>
+            </phi-component>
+            
+       </div>
+    </div>
+';
+
+$test=new \Phi\Module\DOMTemplate\Template($template);
+$test->setVariable('content', array(
+	'test1'=>'test 1',
+	'test2'=>'test 2',
+));
+$test->enableComponents(true);
+
+echo 'ici';
+echo $test->render();
+echo '<hr/>';
+
 
 
 

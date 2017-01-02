@@ -4896,7 +4896,10 @@
 
       context.invoke('imagePopover.update', target);
 
+
+
       if (isImage) {
+
         var $image = $(target);
         var pos = $image.position();
 
@@ -6112,6 +6115,9 @@
     };
   };
 
+
+
+  //jdlx
   var ImagePopover = function (context) {
     var ui = $.summernote.ui;
 
@@ -6136,6 +6142,7 @@
 
     this.update = function (target) {
       if (dom.isImg(target)) {
+
         var pos = dom.posFromPlaceholder(target);
         this.$popover.css({
           display: 'block',
@@ -6700,6 +6707,107 @@
   };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//jdlx
+  var Foobar=function (context) {
+    var ui = $.summernote.ui;
+
+    var options = context.options;
+
+    this.events = {
+      'summernote.mousedown': function (we, e) {
+
+        console.debug('mouse down');
+        console.debug(event.target);
+
+
+
+        var ui = $.summernote.ui;
+
+        this.$popover = ui.popover({
+          className: 'note-image-popover'
+        }).render().appendTo('body');
+        var $content = this.$popover.find('.popover-content');
+
+        console.debug($content);
+
+        //var $content = [$('<div>hello world</div>').get(0)];
+
+        console.debug($content);
+
+        context.invoke('buttons.build', $content, options.popover.image);
+
+        this.$popover.css({
+          display: 'block',
+          left: 200,
+          top: 200
+        });
+
+
+        /*
+        if (self.update(e.target)) {
+          e.preventDefault();
+        }
+        */
+      },
+
+      /*
+      'summernote.keyup summernote.scroll summernote.change summernote.dialog.shown': function () {
+        self.update();
+      }
+      */
+    };
+
+
+
+    this.shouldInitialize = function () {
+      return true;
+      //return !list.isEmpty(options.popover.image);
+    };
+
+    this.initialize = function () {
+      console.debug('initialisation');
+    };
+
+    this.destroy = function () {
+      console.debug('destroy');
+    };
+
+    this.update = function (target) {
+      console.debug('update');
+    };
+
+    this.hide = function () {
+      console.debug('hide');
+    };
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   $.summernote = $.extend($.summernote, {
     version: '0.8.1',
     ui: ui,
@@ -6729,7 +6837,8 @@
         'imagePopover': ImagePopover,
         'videoDialog': VideoDialog,
         'helpDialog': HelpDialog,
-        'airPopover': AirPopover
+        'airPopover': AirPopover,
+        'foobar' :Foobar
       },
 
       buttons: {},

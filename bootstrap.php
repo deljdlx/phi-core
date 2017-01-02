@@ -12,7 +12,7 @@ if(!defined('PHI_INITIALIZED')) {
 
 
     //@TODO autoload modules
-    include(__DIR__.'/source/Module/DOMTemplate/bootstrap.php');
+    include(__DIR__.'/Module/DOMTemplate/bootstrap.php');
 
 
     define('PHI_INITIALIZED', true);

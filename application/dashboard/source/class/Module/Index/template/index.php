@@ -124,6 +124,8 @@
 	<script src="vendor/summernote/dist/summernote.js"></script>
 	<script src="vendor/summernote/lang/summernote-fr-FR.js"></script>
 	<script src="vendor/summernote/plugin/addclass.js"></script>
+	<script src="vendor/summernote/plugin/summernote-image-title.js"></script>
+
 
 
 

@@ -1,3 +1,9 @@
+
+
+
+
+
+
 Bienvenue.Component.RichEdit=function()
 {
 	this.__construct();
@@ -7,12 +13,12 @@ Bienvenue.Component.RichEdit=function()
 	var self=this;
 
 
-	var SaveButton = function (context) {
+	var HelloButton = function (context) {
 		var ui = $.summernote.ui;
 		// create button
 		var button = ui.button({
-			contents: '<i class="fa fa-floppy-o"/>',
-			tooltip: 'Sauver',
+			contents: '<i class="fa fa-commenting-o"/>',
+			tooltip: 'Hello',
 			click: function () {
 				// invoke insertText method with 'hello' on editor module.
 				context.invoke('editor.insertText', 'hello');
@@ -43,9 +49,41 @@ Bienvenue.Component.RichEdit=function()
 	};
 
 
+
+
+
 	this.defaultOptions={
 		lang: 'fr-FR',
 		height: '500',
+
+
+
+
+		imageTitle: {
+			specificAltField: true,
+		},
+		popover: {
+			image: [
+				['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+				['float', ['floatLeft', 'floatRight', 'floatNone']],
+				['remove', ['removeMedia']],
+				['custom', ['imageTitle']],
+			],
+
+			link: [
+				['link', ['linkDialogShow', 'unlink']]
+			],
+		},
+
+
+		/*
+		modules: {
+			'foobar': Foobar
+		},
+		*/
+
+
+
 
 		//styleTags: ['p.copyright', 'blockquote', 'pre'],
 
@@ -68,18 +106,18 @@ Bienvenue.Component.RichEdit=function()
 
 		toolbar: [
 			// [groupName, [list of button]]
-			['style', ['style', 'addclass', 'bold', 'italic', 'underline', 'clear']],
+			['style', ['video', 'style', 'addclass', 'bold', 'italic', 'underline', 'clear']],
 			['object', ['picture', 'link', 'table', 'hr']],
 			['font', ['superscript']],
 			['fontsize', ['fontsize']],
 			['color', ['color']],
 			['para', ['ul', 'ol', 'paragraph']],
 
-			['action', ['save', 'popup']],
+			['action', ['fontIcon', 'hello', 'popup', 'codeview']],
 			//['height', ['height']]
 		],
 		buttons: {
-			save: SaveButton,
+			hello: HelloButton,
 			popup: PopupButton
 		},
 		callbacks: {
@@ -88,6 +126,7 @@ Bienvenue.Component.RichEdit=function()
 			}.bind(this)
 		}
 	};
+
 
 	this.loadCSS([
 		'asset/richedit.css'

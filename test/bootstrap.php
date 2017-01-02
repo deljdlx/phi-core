@@ -5,7 +5,6 @@ ini_set('display_errors', 'on');
 
 require(__DIR__ . '/../bootstrap.php');
 
-registerNamespace('PhiTest', __DIR__.'/source');
 
 
 
@@ -15,3 +14,4 @@ spl_autoload_register(function($className) {
         include(__DIR__.'/test/phi/'.$baseName.'/'.$baseName.'.test.php');
     }
 });
+

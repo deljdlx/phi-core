@@ -28,9 +28,10 @@ class Template
 
     protected $componentEnabled=false;
 
-
     protected $defaultComponentTagName='phi-component';
     protected $componantClassNameAttributeName='data-instanceof';
+
+	protected $components=array();
 
 
 
@@ -68,6 +69,15 @@ class Template
         return $valueDocument;
 
     }
+
+
+
+    public function bindVariariablesWithComponents() {
+
+    }
+
+
+
 
 
     public function parseDOM($buffer) {
@@ -110,6 +120,23 @@ class Template
             $className=(string) $node->getAttribute($this->componantClassNameAttributeName);
 
             if(class_exists($className)) {
+
+            	//extraction des variables injectées
+
+	            $buffer=$this->dom->getXML($node);
+
+	            echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
+	            echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
+	            print_r(htmlentities($buffer));
+	            echo '</pre>';
+
+	            preg_replace_callback('`\{\{\{(.*?)\}\}\}`', function($matches) {
+		            echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
+		            echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
+		            print_r($matches);
+		            echo '</pre>';
+	            }, $buffer);
+
                 $component=new $className;
                 $component->loadFromDOMNode($node);
                 return $component;
@@ -132,11 +159,16 @@ class Template
             $this->setVariables($values);
         }
 
-        $output=$this->compileMustache($this->template, $this->getVariables());
 
-        $compiledDom=$this->parseDOM($output);
 
-        $this->output=$compiledDom;
+
+
+        $compiledDom=$this->parseDOM($this->template);
+
+	    $output=$this->compileMustache($compiledDom, $this->getVariables());
+
+
+        $this->output=$output;
         return $this->output;
     }
 

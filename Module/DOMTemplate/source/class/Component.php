@@ -15,6 +15,8 @@ class Component extends Template
     protected $attributeAttributeName='data-attribute-name';
 
 
+
+
     public function __construct($template=null) {
         parent::__construct($template);
     }
