@@ -44,9 +44,51 @@ class Component extends Template
             $attributeName=(string) $attributeNode->getAttribute($this->attributeAttributeName);
             $this->setVariable($attributeName, $attributeNode->textContent);
         }
-
-
     }
+
+
+	public function bindAttributesValues($attributesValues) {
+
+
+		foreach ($this->getVariables() as $variableName =>  $value) {
+
+			$buffer=$value
+			;
+			preg_replace_callback('`\{\{\{(.*?)\}\}\}`', function($matches) use ($variableName, $attributesValues) {
+
+				$variables=explode('.', $matches[1]);
+
+				$currentValue=null;
+
+				if(isset($attributesValues[$variables[0]])) {
+
+					$currentValue=$attributesValues[$variables[0]];
+
+
+					array_shift($variables);
+
+					foreach ($variables as $subVariable) {
+						if(is_array($currentValue) && isset($currentValue[$subVariable])) {
+							$currentValue=$currentValue[$subVariable];
+						}
+						else if(is_object($currentValue) && isset($currentValue->$subVariable)) {
+							$currentValue=$currentValue->$subVariable;
+						}
+						else {
+							$currentValue=null;
+							break;
+						}
+					}
+				}
+				$this->setVariable($variableName, $currentValue);
+			}, $buffer);
+		}
+
+		return $this;
+
+
+	}
+
 
 
 

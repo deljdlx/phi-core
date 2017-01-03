@@ -82,7 +82,7 @@ class Template
 
     public function parseDOM($buffer) {
 
-        libxml_use_internal_errors(true);
+        //libxml_use_internal_errors(true);
 
         $this->dom=new DOMDocument('1.0', 'utf-8');
 
@@ -102,6 +102,7 @@ class Template
             $nodes=$xPath->query($query);
 
 
+
             foreach ($nodes as $node) {
                 $content=call_user_func_array($renderer, array($node));
                 $this->dom->replaceNodeWithContent($node, $content);
@@ -115,30 +116,50 @@ class Template
     public function initializeComponentParsing() {
 
 
-        $this->registerCustomTag($this->defaultComponentTagName, function(\DOMElement $node) {
+    	$template=$this;
+
+        $this->registerCustomTag($this->defaultComponentTagName, function(\DOMElement $node) use ($template) {
 
             $className=(string) $node->getAttribute($this->componantClassNameAttributeName);
 
             if(class_exists($className)) {
 
+
+	            $component=new $className;
+	            $component->loadFromDOMNode($node);
+	            $component->bindAttributesValues($this->getVariables());
+
+
             	//extraction des variables injectées
 
+	            /*
 	            $buffer=$this->dom->getXML($node);
+	            preg_replace_callback('`\{\{\{(.*?)\}\}\}`', function($matches) use ($template, $component) {
 
-	            echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
-	            echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
-	            print_r(htmlentities($buffer));
-	            echo '</pre>';
+		            $variables=explode('.', $matches[1]);
+		            if($currentVariable=$template->getVariable(
+		            	reset($variables)
+		            )) {
+			            array_shift($variables);
 
-	            preg_replace_callback('`\{\{\{(.*?)\}\}\}`', function($matches) {
-		            echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
-		            echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
-		            print_r($matches);
-		            echo '</pre>';
+			            foreach ($variables as $subVariable) {
+				            if(is_array($currentVariable) && isset($currentVariable[$subVariable])) {
+					            $currentVariable=$currentVariable[$subVariable];
+				            }
+				            else if(is_object($currentVariable) && isset($currentVariable->$currentVariable)) {
+					            $currentVariable=$currentVariable->$currentVariable;
+				            }
+				            else {
+					            $currentVariable=null;
+					            break;
+				            }
+			            }
+		            }
+
+		            $component->setVariable($currentVariable);
 	            }, $buffer);
+	            */
 
-                $component=new $className;
-                $component->loadFromDOMNode($node);
                 return $component;
             }
 

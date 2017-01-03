@@ -22,7 +22,7 @@ Trait Collection
 	}
 
 
-	public function &getVariable($name) {
+	public function getVariable($name) {
 		if(isset($this->variableCollection[$name])) {
 			return $this->variableCollection[$name];
 		}
