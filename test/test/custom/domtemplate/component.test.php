@@ -1,7 +1,18 @@
 <?php
 
 
+
+
+
+
+
 require(__DIR__.'/../../../bootstrap.php');
+
+
+
+
+
+
 
 $template='<button>Composant bouton</button>';
 $test=new \Phi\Module\DOMTemplate\Component($template);
@@ -200,7 +211,7 @@ $template='
        <div>
 
             <phi-component data-instanceof="TestComponent3">
-                <meta  data-attribute-name="content">{{{content.test1.sub12}}}</meta>
+                <meta  data-attribute-name="content">{{{content.test1.sub1}}}</meta>
             </phi-component>
             
        </div>
@@ -238,7 +249,7 @@ class TestComponent4 extends \Phi\Module\DOMTemplate\Component
 $template='
     <div style="border: solid 3px #002a80; padding: 10px;">
 
-        Composant container avec composant
+        Composant container avec composant data imbriquées
 
        <div>
 
@@ -265,6 +276,43 @@ echo '<hr/>';
 
 
 
+
+
+//=======================================================
+//=======================================================
+
+
+
+
+$template='
+    <div style="border: solid 3px #002a80; padding: 10px;">
+        <div>{{{content}}}</div>
+        <div>Injection de texte</div>
+       <div>
+            <yolo><button><strong class="yolo">click here</strong></button></yolo>
+            <br/>
+            <yolo2><strong>test ici</strong></yolo2>
+       </div>
+    </div>
+';
+
+$test=new \Phi\Module\DOMTemplate\Component($template);
+$yoloTag=$test->registerCustomTag('yolo', function($nodeContent, $node) {
+    return $nodeContent;
+});
+$yoloTag->addJavascript('
+    document.querySelector(".yolo").onclick=function() {alert("click");};
+');
+
+
+$test->registerCustomTag('yolo2', function($nodeContent, $node) {
+    return '<em>'.$nodeContent.'</em>';
+});
+
+echo $test->render();
+echo '<hr/>';
+
+//=======================================================
 
 
 
