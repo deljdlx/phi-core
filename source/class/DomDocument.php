@@ -8,20 +8,8 @@ class DOMDocument extends \DOMDocument
 {
 
 
-    const XML_VALUE_ROOT_NODE_NAME='phi-dom-tempnode-root';
 
     public function replaceNodeWithContent($containerNode, $content) {
-
-
-        /*
-        $xml='<'.static::XML_VALUE_ROOT_NODE_NAME.'>'.$content.'</'.static::XML_VALUE_ROOT_NODE_NAME.'>';
-        $valueDocument=new \DOMDocument('1.0', 'utf-8');
-        $valueDocument->loadHTML('<?xml encoding="utf-8" ?>'.$xml, \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD);
-        $xPath=new \DOMXPath($valueDocument);
-        $query='//'.static::XML_VALUE_ROOT_NODE_NAME.'/*';
-        $valueNodes=$xPath->query($query);
-        */
-
         $contentNode=$this->createCDATASection($content);
         $this->replaceNodeWithNode($containerNode, $contentNode);
 
@@ -84,6 +72,18 @@ class DOMDocument extends \DOMDocument
         else {
             return $this->saveXML($node);
         }
+    }
+
+    public function innerHTML(\DOMNode $element) {
+        $innerHTML = "";
+        $children  = $element->childNodes;
+
+        foreach ($children as $child)
+        {
+            $innerHTML .= $element->ownerDocument->saveHTML($child);
+        }
+
+        return $innerHTML;
     }
 
 

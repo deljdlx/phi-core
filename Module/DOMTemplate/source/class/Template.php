@@ -11,7 +11,6 @@ class Template
 {
 
 
-
     use Collection;
     use MustacheTemplate;
 
@@ -20,6 +19,7 @@ class Template
     protected  $template;
 
 
+    protected $libXMLFlag;
     protected $dom;
     protected $rootNode;
 
@@ -37,6 +37,7 @@ class Template
 
 
     public function __construct($template=null) {
+        $this->libXMLFlag=\LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD | \LIBXML_NOXMLDECL;
         $this->template=$template;
     }
 
@@ -47,7 +48,13 @@ class Template
 
 
     public function registerCustomTag($tagName, $callback) {
-        $this->customTags[$tagName]=$callback;
+
+        $customTag=new CustomTag($tagName, $callback);
+
+        $this->customTags[$tagName]=$customTag;//$callback;
+
+
+        return $customTag;
         return $this;
     }
 
@@ -72,12 +79,6 @@ class Template
 
 
 
-    public function bindVariariablesWithComponents() {
-
-    }
-
-
-
 
 
     public function parseDOM($buffer) {
@@ -86,7 +87,7 @@ class Template
 
         $this->dom=new DOMDocument('1.0', 'utf-8');
 
-        $this->dom->loadXML($buffer, \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD | \LIBXML_NOXMLDECL);
+        $this->dom->loadXML($buffer, $this->libXMLFlag);
         $this->rootNode=$this->dom->firstChild;
 
         if($this->componentEnabled) {
@@ -94,7 +95,7 @@ class Template
         }
 
 
-        foreach ($this->customTags as $tagName=>$renderer) {
+        foreach ($this->customTags as $tagName=>$customTag) {
             $query='//'.$tagName;
 
 
@@ -103,8 +104,11 @@ class Template
 
 
 
+
             foreach ($nodes as $node) {
-                $content=call_user_func_array($renderer, array($node));
+
+                $nodeContent=$this->dom->innerHTML($node);
+                $content=call_user_func_array(array($customTag, 'render'), array($nodeContent, $node));
                 $this->dom->replaceNodeWithContent($node, $content);
             }
         }
@@ -118,7 +122,7 @@ class Template
 
     	$template=$this;
 
-        $this->registerCustomTag($this->defaultComponentTagName, function(\DOMElement $node) use ($template) {
+        $this->registerCustomTag($this->defaultComponentTagName, function($nodeContent, \DOMElement $node) use ($template) {
 
             $className=(string) $node->getAttribute($this->componantClassNameAttributeName);
 
