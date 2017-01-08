@@ -12,8 +12,8 @@
 		"process-timeout": 600
 	},
 	"autoload": {
-		"files": [
-			"bootstrap.php"
-		]
+		"psr-4": {
+			"Phi\\": "source/class"
+		}
 	}
 }
