@@ -129,37 +129,6 @@ class Template
 	            $component->loadFromDOMNode($node);
 	            $component->bindAttributesValues($this->getVariables());
 
-
-            	//extraction des variables injectées
-
-	            /*
-	            $buffer=$this->dom->getXML($node);
-	            preg_replace_callback('`\{\{\{(.*?)\}\}\}`', function($matches) use ($template, $component) {
-
-		            $variables=explode('.', $matches[1]);
-		            if($currentVariable=$template->getVariable(
-		            	reset($variables)
-		            )) {
-			            array_shift($variables);
-
-			            foreach ($variables as $subVariable) {
-				            if(is_array($currentVariable) && isset($currentVariable[$subVariable])) {
-					            $currentVariable=$currentVariable[$subVariable];
-				            }
-				            else if(is_object($currentVariable) && isset($currentVariable->$currentVariable)) {
-					            $currentVariable=$currentVariable->$currentVariable;
-				            }
-				            else {
-					            $currentVariable=null;
-					            break;
-				            }
-			            }
-		            }
-
-		            $component->setVariable($currentVariable);
-	            }, $buffer);
-	            */
-
                 return $component;
             }
 
