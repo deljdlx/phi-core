@@ -2,10 +2,11 @@
 	"name": "elbiniou-phi",
 	"description": "A framework for people who don't like frameworks",
 	"repositories": [
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"}
 	],
 	"require":
 	{
-
+		"phi-traits": "dev-master"
 	},
 	"require-dev": {
 	},

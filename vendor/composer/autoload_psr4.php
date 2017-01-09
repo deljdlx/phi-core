@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Phi\\Traits\\' => array($vendorDir . '/phi-traits/source/class/Traits'),
     'Phi\\' => array($baseDir . '/source/class'),
 );
