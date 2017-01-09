@@ -6,12 +6,11 @@ namespace Phi;
 
 use Phi\Traits\Collection;
 
-class PHPTemplate extends Object
+class PHPTemplate
 {
 
 
 	use Collection;
-
 
 
 	protected $template=null;
