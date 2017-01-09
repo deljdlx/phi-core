@@ -1,9 +1,9 @@
 <?php
 namespace Phi\Traits;
 
-use CapitalSite\Configuration\Application;
-use Premium\Cache\Blackhole;
-use Premium\Interfaces\CacheDriver;
+
+use Phi\Cache\Blackhole;
+use Phi\Interfaces\CacheDriver;
 
 
 Trait Collection
@@ -15,7 +15,7 @@ Trait Collection
 
 
 
-
+z
 	public function setVariable($name, $value) {
 		$this->variableCollection[$name]=$value;
 		return $this;

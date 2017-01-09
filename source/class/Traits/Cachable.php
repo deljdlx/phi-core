@@ -3,8 +3,8 @@ namespace Phi\Traits;
 
 
 
-use Premium\Cache\Blackhole;
-use Premium\Interfaces\CacheDriver;
+use Phi\Cache\Blackhole;
+use Phi\Interfaces\CacheDriver;
 
 
 /*
