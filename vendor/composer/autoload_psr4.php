@@ -7,5 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Phi\\Traits\\' => array($vendorDir . '/phi-traits/source/class/Traits'),
+    'Phi\\Interfaces\\' => array($baseDir . '/source/Interfaces'),
     'Phi\\' => array($baseDir . '/source/class'),
 );

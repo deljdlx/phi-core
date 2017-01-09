@@ -15,7 +15,8 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"Phi\\": "source/class"
+			"Phi\\": "source/class",
+			"Phi\\Interfaces\\": "source/Interfaces"
 		}
 	}
 }
