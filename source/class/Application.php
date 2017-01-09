@@ -1,10 +1,7 @@
 <?php
 namespace Phi;
+use Phi\Routing\Interfaces\Router;
 
-
-
-
-use Phi\Interfaces\Router;
 
 /**
  * Class Application
