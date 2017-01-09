@@ -1,7 +1,10 @@
 <?php
 namespace Phi\Routing;
-use Phi\Object;
-class Route extends Object implements \Phi\Interfaces\Route
+
+
+use Phi\Routing\Interfaces\Request;
+
+class Route implements \Phi\Routing\Interfaces\Route
 {
 
 
@@ -29,7 +32,7 @@ class Route extends Object implements \Phi\Interfaces\Route
     public function addHeaders($headers) {
         $this->headers=array_merge($this->headers, $headers);
     }
-    public function validate(\Phi\Interfaces\Request $request) {
+    public function validate(Request $request) {
         $callString=$request->getURI();
         if(is_string($this->validator)) {
             $matches=array();

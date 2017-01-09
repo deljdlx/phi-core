@@ -1,5 +1,5 @@
 <?php
-namespace Phi\Interfaces;
+namespace Phi\Routing\Interfaces;
 
 
 

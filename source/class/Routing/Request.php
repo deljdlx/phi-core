@@ -2,9 +2,7 @@
 namespace Phi\Routing;
 
 
-use Phi\Object;
-
-class Request extends Object implements \Phi\Interfaces\Request
+class Request implements \Phi\Routing\Interfaces\Request
 {
 
 

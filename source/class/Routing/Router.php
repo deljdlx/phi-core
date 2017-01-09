@@ -3,7 +3,7 @@
 namespace Phi\Routing;
 
 use Phi\HTTP\Header;
-use Phi\Object;
+
 
 
 /**
@@ -11,7 +11,7 @@ use Phi\Object;
  * @package Phi
  * @param
  */
-class Router extends Object implements \Phi\Interfaces\Router
+class Router implements \Phi\Routing\Interfaces\Router
 {
 
 
