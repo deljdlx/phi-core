@@ -2,13 +2,13 @@
 namespace Phi\Cache\Interfaces;
 
 
-
-
-interface CacheDriver
+interface Driver
 {
 
     public function exists($key);
+
     public function get($key);
+
     public function set($key, $data);
 
 }

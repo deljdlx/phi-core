@@ -1,24 +1,24 @@
 <?php
 namespace Phi\Cache;
 
+use Phi\Cache\Interfaces\Driver;
 
 
-
-use Phi\Interfaces\CacheDriver;
-
-class Blackhole implements CacheDriver
+class Blackhole implements Driver
 {
 
-
-    public function exists($key) {
+    public function exists($key)
+    {
         return false;
     }
 
-    public function get($key) {
+    public function get($key)
+    {
         return false;
     }
 
-    public function set($key) {
+    public function set($key, $data)
+    {
         return false;
     }
 }

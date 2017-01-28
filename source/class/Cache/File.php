@@ -2,51 +2,50 @@
 namespace Phi\Cache;
 
 
+use Phi\Cache\Interfaces\Driver;
 
-
-use Phi\Interfaces\CacheDriver;
-
-class File implements CacheDriver
+class File implements Driver
 {
 
-    protected $cacheFilepathRoot=null;
+    protected $cacheFilepathRoot = null;
 
 
-    public function exists($key) {
-        if(!$this->cacheFilepathRoot) {
+    public function exists($key)
+    {
+        if (!$this->cacheFilepathRoot) {
             return false;
         }
 
-        if(is_file($this->getFilepath($key))) {
+        if (is_file($this->getFilepath($key))) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
 
 
     }
 
-    public function get($key) {
-        if(!$this->cacheFilepathRoot) {
+    public function get($key)
+    {
+        if (!$this->cacheFilepathRoot) {
             return false;
         }
 
-        if($this->exists($key)) {
+        if ($this->exists($key)) {
             return file_get_contents($this->getFilepath($key));
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public function set($key, $data) {
-        if(!$this->cacheFilepathRoot) {
+    public function set($key, $data)
+    {
+        if (!$this->cacheFilepathRoot) {
             return false;
         }
 
-        $filepath=$this->getFilepath($key);
-        if($filepath) {
+        $filepath = $this->getFilepath($key);
+        if ($filepath) {
             return file_put_contents(
                 $filepath,
                 $data
@@ -56,23 +55,18 @@ class File implements CacheDriver
     }
 
 
-    public function getFilepath($key) {
+    public function getFilepath($key)
+    {
 
-        if($this->cacheFilepathRoot && is_dir($this->cacheFilepathRoot)) {
-            $slug=slugify($key);
-            return $this->cacheFilepathRoot.'/'.$slug.'.cache';
-        }
-        else {
+        if ($this->cacheFilepathRoot && is_dir($this->cacheFilepathRoot)) {
+            $slug = slugify($key);
+            return $this->cacheFilepathRoot . '/' . $slug . '.cache';
+        } else {
             return false;
         }
 
 
-
-
-
     }
-
-
 
 
 }
