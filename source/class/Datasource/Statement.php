@@ -2,11 +2,11 @@
 
 
 namespace Phi\DataSource;
-
+use \Phi\DataSource\Interfaces\Statement as PhiStatement;
 
 /**
  * Class Statement
- * @property \Phi\Interfaces\DataSource\Statement driver
+ * @property \Phi\DataSource\Interfaces\Statement driver
  * @package Phi\DataSource
  */
 
@@ -15,7 +15,7 @@ class Statement
 
 	protected $driver;
 
-	public function __construct(\Phi\Interfaces\DataSource\Statement $statement) {
+	public function __construct(PhiStatement $statement) {
 		$this->driver=$statement;
 	}
 

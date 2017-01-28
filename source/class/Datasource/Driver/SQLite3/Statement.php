@@ -10,7 +10,7 @@ namespace Phi\DataSource\Driver\SQLite3;
  * @package Phi\DataSource\SQLite3
  */
 
-class Statement implements \Phi\Interfaces\DataSource\Statement
+class Statement implements \Phi\DataSource\Interfaces\Statement
 {
 
 	protected $statement;

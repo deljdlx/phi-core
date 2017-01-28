@@ -1,5 +1,5 @@
 <?php
-namespace Phi\Interfaces\DataSource;
+namespace Phi\DataSource\Interfaces;
 
 
 

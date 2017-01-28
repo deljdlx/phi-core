@@ -6,7 +6,7 @@ namespace Phi\DataSource;
 
 
 
-use Phi\Interfaces\DataSource\Driver;
+use Phi\DataSource\Interfaces\Driver;
 use Phi\Object;
 
 

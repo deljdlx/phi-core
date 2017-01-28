@@ -12,7 +12,7 @@ if(is_file(__DIR__.'/test.sqlite')) {
 }
 
 
-$driver=new \Phi\DataSource\Driver\MySQLi\Source($fileName);
+$driver=new \Phi\DataSource\Driver\SQLite3\Source($fileName);
 
 $driver->query('
 	CREATE TABLE test (

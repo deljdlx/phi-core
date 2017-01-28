@@ -28,5 +28,35 @@
             "source": "https://github.com/ElBiniou/phi-traits/tree/master",
             "issues": "https://github.com/ElBiniou/phi-traits/issues"
         }
+    },
+    {
+        "name": "phi-routing",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ElBiniou/phi-routing.git",
+            "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/a1205824c2bab11130e00a35ef371bb79c737b9c",
+            "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c",
+            "shasum": ""
+        },
+        "time": "2017-01-28 17:07:14",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phi\\Routing\\": "source/class/Routing"
+            },
+            "files": []
+        },
+        "description": "Phi routing",
+        "support": {
+            "source": "https://github.com/ElBiniou/phi-routing/tree/master",
+            "issues": "https://github.com/ElBiniou/phi-routing/issues"
+        }
     }
 ]

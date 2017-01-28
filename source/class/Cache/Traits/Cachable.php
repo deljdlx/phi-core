@@ -1,10 +1,10 @@
 <?php
-namespace Phi\Traits;
+namespace Phi\Cache\Traits;
 
 
 
 use Phi\Cache\Blackhole;
-use Phi\Interfaces\CacheDriver;
+use Phi\Cache\Interfaces\CacheDriver;
 
 
 /*

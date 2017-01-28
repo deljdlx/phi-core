@@ -4,9 +4,37 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c03d2204be38d7d092d5e1ea636fa4e1",
-    "content-hash": "064a8ef15967569cd12216286e5ff591",
+    "hash": "2dfa9ab0764b1404bfaa26809f2d748c",
+    "content-hash": "6287e5db376fb2df85964866797a8f30",
     "packages": [
+        {
+            "name": "phi-routing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-routing.git",
+                "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/a1205824c2bab11130e00a35ef371bb79c737b9c",
+                "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Routing\\": "source/class/Routing"
+                },
+                "files": []
+            },
+            "description": "Phi routing",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-routing/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-routing/issues"
+            },
+            "time": "2017-01-28 17:07:14"
+        },
         {
             "name": "phi-traits",
             "version": "dev-master",
@@ -40,7 +68,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "phi-traits": 20
+        "phi-traits": 20,
+        "phi-routing": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

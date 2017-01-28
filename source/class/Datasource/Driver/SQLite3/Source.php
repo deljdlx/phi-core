@@ -6,7 +6,7 @@ namespace Phi\DataSource\Driver\SQLite3;
 
 
 use Phi\DataSource\Statement;
-use Phi\Interfaces\DataSource\Driver;
+use Phi\DataSource\Interfaces\Driver;
 
 class Source extends \SQLite3 implements Driver
 {

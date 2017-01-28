@@ -2,7 +2,7 @@
 
 
 namespace Phi\DataSource\Driver\MySQLi;
-
+use \Phi\DataSource\Interfaces\Statement as PhiStatement;
 
 /**
  * Class Statement
@@ -10,7 +10,7 @@ namespace Phi\DataSource\Driver\MySQLi;
  * @package Phi\DataSource\SQLite3
  */
 
-class Statement implements \Phi\Interfaces\DataSource\Statement
+class Statement implements PhiStatement
 {
 
 	protected $statement;

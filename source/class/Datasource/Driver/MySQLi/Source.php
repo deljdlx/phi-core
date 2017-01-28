@@ -7,7 +7,7 @@ namespace Phi\DataSource\Driver\MySQLi;
 
 use Phi\DataSource\Statement;
 use Phi\Exception;
-use Phi\Interfaces\DataSource\Driver;
+use Phi\DataSource\Interfaces\Driver;
 
 class Source extends \MySQLi implements Driver
 {
