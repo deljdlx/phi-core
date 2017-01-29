@@ -30,21 +30,54 @@
         }
     },
     {
+        "name": "phi-http",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ElBiniou/phi-http.git",
+            "reference": "aca2988cc7a04e66bcd65527cdd4ebafec533969"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ElBiniou/phi-http/zipball/aca2988cc7a04e66bcd65527cdd4ebafec533969",
+            "reference": "aca2988cc7a04e66bcd65527cdd4ebafec533969",
+            "shasum": ""
+        },
+        "time": "2017-01-29 14:56:50",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phi\\Routing\\": "source/class/HTTP"
+            },
+            "files": []
+        },
+        "description": "Phi http",
+        "support": {
+            "source": "https://github.com/ElBiniou/phi-http/tree/master",
+            "issues": "https://github.com/ElBiniou/phi-http/issues"
+        }
+    },
+    {
         "name": "phi-routing",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/ElBiniou/phi-routing.git",
-            "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c"
+            "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/a1205824c2bab11130e00a35ef371bb79c737b9c",
-            "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c",
+            "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/9b2fbf316059b74bf4e70577d95858268ef57de6",
+            "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6",
             "shasum": ""
         },
-        "time": "2017-01-28 17:07:14",
+        "require": {
+            "phi-http": "dev-master"
+        },
+        "time": "2017-01-29 14:59:26",
         "type": "library",
         "installation-source": "source",
         "autoload": {

@@ -4,22 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2dfa9ab0764b1404bfaa26809f2d748c",
-    "content-hash": "6287e5db376fb2df85964866797a8f30",
+    "hash": "2ff2327ada77242f4bb4114a3b88b48e",
+    "content-hash": "ae7e7f451a785c0f723968f171ff256e",
     "packages": [
+        {
+            "name": "phi-http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-http.git",
+                "reference": "aca2988cc7a04e66bcd65527cdd4ebafec533969"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-http/zipball/aca2988cc7a04e66bcd65527cdd4ebafec533969",
+                "reference": "aca2988cc7a04e66bcd65527cdd4ebafec533969",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Routing\\": "source/class/HTTP"
+                },
+                "files": []
+            },
+            "description": "Phi http",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-http/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-http/issues"
+            },
+            "time": "2017-01-29 14:56:50"
+        },
         {
             "name": "phi-routing",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-routing.git",
-                "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c"
+                "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/a1205824c2bab11130e00a35ef371bb79c737b9c",
-                "reference": "a1205824c2bab11130e00a35ef371bb79c737b9c",
+                "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/9b2fbf316059b74bf4e70577d95858268ef57de6",
+                "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6",
                 "shasum": ""
+            },
+            "require": {
+                "phi-http": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -33,7 +64,7 @@
                 "source": "https://github.com/ElBiniou/phi-routing/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-routing/issues"
             },
-            "time": "2017-01-28 17:07:14"
+            "time": "2017-01-29 14:59:26"
         },
         {
             "name": "phi-traits",
@@ -69,7 +100,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "phi-traits": 20,
-        "phi-routing": 20
+        "phi-routing": 20,
+        "phi-http": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

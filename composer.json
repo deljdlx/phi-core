@@ -3,12 +3,14 @@
 	"description": "A framework for people who don't like frameworks",
 	"repositories": [
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-routing"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"}
 	],
 	"require":
 	{
 		"phi-traits": "dev-master",
-		"phi-routing": "dev-master"
+		"phi-routing": "dev-master",
+		"phi-http": "dev-master"
 	},
 	"require-dev": {
 	},
@@ -16,6 +18,7 @@
 		"process-timeout": 600
 	},
 	"autoload": {
+		"files": ["source/helper.php"],
 		"psr-4": {
 			"Phi\\": "source/class",
 			"Phi\\Interfaces\\": "source/Interfaces"
