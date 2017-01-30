@@ -7,7 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Phi\\Traits\\' => array($vendorDir . '/phi-traits/source/class/Traits'),
-    'Phi\\Routing\\' => array($vendorDir . '/phi-http/source/class/HTTP', $vendorDir . '/phi-routing/source/class/Routing'),
+    'Phi\\Routing\\' => array($vendorDir . '/phi-routing/source/class/Routing'),
     'Phi\\Interfaces\\' => array($baseDir . '/source/Interfaces'),
+    'Phi\\HTTP\\' => array($vendorDir . '/phi-http/source/class/HTTP'),
     'Phi\\' => array($baseDir . '/source/class'),
 );
