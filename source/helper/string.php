@@ -6,11 +6,8 @@ function slugify($string)
     $normalized = $string;
     $normalized = removeAccent($normalized);
     $normalized=preg_replace('`\W`', '-', $normalized);
-    $normalized=preg_replace('`-*`', '-', $normalized);
-
-
+    $normalized=preg_replace('`-+`', '-', $normalized);
     return $normalized;
-
 }
 
 

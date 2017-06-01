@@ -39,7 +39,7 @@ function includePhiModule($moduleName)
 }
 
 
-function getClassInstanceByName($className, $parameters = array())
+function getInstance($className, $parameters = array())
 {
 
     if (!class_exists($className)) {
