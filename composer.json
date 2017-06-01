@@ -7,7 +7,10 @@
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-session"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-cache"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-database"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-database"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-storage"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-application"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-component"}
 	],
 	"require":
 	{
@@ -16,7 +19,10 @@
 		"phi-http": "dev-master",
 		"phi-session": "dev-master",
 		"phi-cache": "dev-master",
-		"phi-database": "dev-master"
+		"phi-database": "dev-master",
+		"phi-storage": "dev-master",
+		"phi-application": "dev-master",
+		"phi-component": "dev-master"
 	},
 	"require-dev": {
 	},

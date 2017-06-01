@@ -4,8 +4,39 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e04e214fbbe92f10f6178bcd86745735",
+    "content-hash": "026515c457e96bacdf6d5a37d2e81ec8",
     "packages": [
+        {
+            "name": "phi-application",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-application.git",
+                "reference": "8fc0e98efa5cb6ef29da5a4c8c4ad93049c4a73a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-application/zipball/8fc0e98efa5cb6ef29da5a4c8c4ad93049c4a73a",
+                "reference": "8fc0e98efa5cb6ef29da5a4c8c4ad93049c4a73a",
+                "shasum": ""
+            },
+            "require": {
+                "phi-routing": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Application\\": "source/class"
+                },
+                "files": []
+            },
+            "description": "Phi application",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-application/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-application/issues"
+            },
+            "time": "2017-06-01 13:08:29"
+        },
         {
             "name": "phi-cache",
             "version": "dev-master",
@@ -33,6 +64,37 @@
                 "issues": "https://github.com/ElBiniou/phi-cache/issues"
             },
             "time": "2017-06-01 11:21:34"
+        },
+        {
+            "name": "phi-component",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-component.git",
+                "reference": "1da76bb5610adaa30b76735360362d9820b49784"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-component/zipball/1da76bb5610adaa30b76735360362d9820b49784",
+                "reference": "1da76bb5610adaa30b76735360362d9820b49784",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mustache": "vendor/mustache/src"
+                },
+                "psr-4": {
+                    "Phi\\Component\\": "source"
+                },
+                "files": []
+            },
+            "description": "Phi web-components",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-component/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-component/issues"
+            },
+            "time": "2017-06-01 13:21:37"
         },
         {
             "name": "phi-database",
@@ -153,6 +215,34 @@
             "time": "2017-06-01 11:08:33"
         },
         {
+            "name": "phi-storage",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-storage.git",
+                "reference": "d6a3d757a8854865e433b88d1359f86e2fbd46c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-storage/zipball/d6a3d757a8854865e433b88d1359f86e2fbd46c3",
+                "reference": "d6a3d757a8854865e433b88d1359f86e2fbd46c3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Storage\\": "source/class"
+                },
+                "files": []
+            },
+            "description": "Phi storage",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-storage/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-storage/issues"
+            },
+            "time": "2017-06-01 12:50:57"
+        },
+        {
             "name": "phi-traits",
             "version": "dev-master",
             "source": {
@@ -190,7 +280,10 @@
         "phi-http": 20,
         "phi-session": 20,
         "phi-cache": 20,
-        "phi-database": 20
+        "phi-database": 20,
+        "phi-storage": 20,
+        "phi-application": 20,
+        "phi-component": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

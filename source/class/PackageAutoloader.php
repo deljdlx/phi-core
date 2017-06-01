@@ -4,7 +4,7 @@ namespace Phi;
 
 
 
-class PackageAutoloader extends Object
+class PackageAutoloader
 {
 
 
