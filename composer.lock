@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cf77821ff4b75654f5e2ed991f8d791",
+    "content-hash": "e04e214fbbe92f10f6178bcd86745735",
     "packages": [
         {
             "name": "phi-cache",
@@ -33,6 +33,34 @@
                 "issues": "https://github.com/ElBiniou/phi-cache/issues"
             },
             "time": "2017-06-01 11:21:34"
+        },
+        {
+            "name": "phi-database",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-database.git",
+                "reference": "7612b7473d6d115b0c0149d239356907d92b7b45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-database/zipball/7612b7473d6d115b0c0149d239356907d92b7b45",
+                "reference": "7612b7473d6d115b0c0149d239356907d92b7b45",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Database\\": "source/class"
+                },
+                "files": []
+            },
+            "description": "Phi database",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-database/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-database/issues"
+            },
+            "time": "2017-06-01 11:34:28"
         },
         {
             "name": "phi-http",
@@ -161,7 +189,8 @@
         "phi-routing": 20,
         "phi-http": 20,
         "phi-session": 20,
-        "phi-cache": 20
+        "phi-cache": 20,
+        "phi-database": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

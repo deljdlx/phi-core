@@ -6,7 +6,8 @@
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-session"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-cache"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-cache"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-database"}
 	],
 	"require":
 	{
@@ -14,7 +15,8 @@
 		"phi-routing": "dev-master",
 		"phi-http": "dev-master",
 		"phi-session": "dev-master",
-		"phi-cache": "dev-master"
+		"phi-cache": "dev-master",
+		"phi-database": "dev-master"
 	},
 	"require-dev": {
 	},
