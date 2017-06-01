@@ -12,18 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-http.git",
-                "reference": "e9a093cfd49911a8a53affd06c60a90b13250ed2"
+                "reference": "f8baeda5e5cd7bd1c3c4605ccee3a4c42a10f569"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-http/zipball/e9a093cfd49911a8a53affd06c60a90b13250ed2",
-                "reference": "e9a093cfd49911a8a53affd06c60a90b13250ed2",
+                "url": "https://api.github.com/repos/ElBiniou/phi-http/zipball/f8baeda5e5cd7bd1c3c4605ccee3a4c42a10f569",
+                "reference": "f8baeda5e5cd7bd1c3c4605ccee3a4c42a10f569",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Phi\\HTTP\\": "source/class/HTTP"
+                    "Phi\\HTTP\\": "source/class"
                 },
                 "files": []
             },
@@ -32,7 +32,7 @@
                 "source": "https://github.com/ElBiniou/phi-http/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-http/issues"
             },
-            "time": "2017-01-30 12:03:47"
+            "time": "2017-06-01 10:56:10"
         },
         {
             "name": "phi-routing",
