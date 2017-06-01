@@ -4,13 +4,17 @@
 	"repositories": [
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-routing"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-session"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-cache"}
 	],
 	"require":
 	{
 		"phi-traits": "dev-master",
 		"phi-routing": "dev-master",
-		"phi-http": "dev-master"
+		"phi-http": "dev-master",
+		"phi-session": "dev-master",
+		"phi-cache": "dev-master"
 	},
 	"require-dev": {
 	},

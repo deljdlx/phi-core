@@ -4,8 +4,36 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae7e7f451a785c0f723968f171ff256e",
+    "content-hash": "2cf77821ff4b75654f5e2ed991f8d791",
     "packages": [
+        {
+            "name": "phi-cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-cache.git",
+                "reference": "449be2bcb3854a0ede14672eeeb688eb451bcd37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-cache/zipball/449be2bcb3854a0ede14672eeeb688eb451bcd37",
+                "reference": "449be2bcb3854a0ede14672eeeb688eb451bcd37",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Cache\\": "source"
+                },
+                "files": []
+            },
+            "description": "Phi cache",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-cache/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-cache/issues"
+            },
+            "time": "2017-06-01 11:21:34"
+        },
         {
             "name": "phi-http",
             "version": "dev-master",
@@ -40,12 +68,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-routing.git",
-                "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6"
+                "reference": "1a1e66cc2c25d21016dcbf6b3999cbe7ff2f3316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/9b2fbf316059b74bf4e70577d95858268ef57de6",
-                "reference": "9b2fbf316059b74bf4e70577d95858268ef57de6",
+                "url": "https://api.github.com/repos/ElBiniou/phi-routing/zipball/1a1e66cc2c25d21016dcbf6b3999cbe7ff2f3316",
+                "reference": "1a1e66cc2c25d21016dcbf6b3999cbe7ff2f3316",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +82,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Phi\\Routing\\": "source/class/Routing"
+                    "Phi\\Routing\\": "source/class"
                 },
                 "files": []
             },
@@ -63,7 +91,38 @@
                 "source": "https://github.com/ElBiniou/phi-routing/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-routing/issues"
             },
-            "time": "2017-01-29 14:59:26"
+            "time": "2017-06-01 11:04:48"
+        },
+        {
+            "name": "phi-session",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-session.git",
+                "reference": "89bf2fec0878517de360cee2abeb943941d94290"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-session/zipball/89bf2fec0878517de360cee2abeb943941d94290",
+                "reference": "89bf2fec0878517de360cee2abeb943941d94290",
+                "shasum": ""
+            },
+            "require": {
+                "phi-http": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Session\\": "source/class"
+                },
+                "files": []
+            },
+            "description": "Phi session",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-session/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-session/issues"
+            },
+            "time": "2017-06-01 11:08:33"
         },
         {
             "name": "phi-traits",
@@ -71,12 +130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-traits.git",
-                "reference": "2f3f1bde6582c1949854e505a44670d8773b07cd"
+                "reference": "1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-traits/zipball/2f3f1bde6582c1949854e505a44670d8773b07cd",
-                "reference": "2f3f1bde6582c1949854e505a44670d8773b07cd",
+                "url": "https://api.github.com/repos/ElBiniou/phi-traits/zipball/1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78",
+                "reference": "1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78",
                 "shasum": ""
             },
             "type": "library",
@@ -91,7 +150,7 @@
                 "source": "https://github.com/ElBiniou/phi-traits/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-traits/issues"
             },
-            "time": "2017-01-09 21:40:53"
+            "time": "2017-06-01 11:10:56"
         }
     ],
     "packages-dev": [],
@@ -100,7 +159,9 @@
     "stability-flags": {
         "phi-traits": 20,
         "phi-routing": 20,
-        "phi-http": 20
+        "phi-http": 20,
+        "phi-session": 20,
+        "phi-cache": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
