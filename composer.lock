@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "026515c457e96bacdf6d5a37d2e81ec8",
+    "content-hash": "adad2a0af6eab9fe6aa43c10ac33deca",
     "packages": [
         {
             "name": "phi-application",
@@ -71,12 +71,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-component.git",
-                "reference": "1da76bb5610adaa30b76735360362d9820b49784"
+                "reference": "f8a432f3a95c7a79f1182ae747dbd2014db4401d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-component/zipball/1da76bb5610adaa30b76735360362d9820b49784",
-                "reference": "1da76bb5610adaa30b76735360362d9820b49784",
+                "url": "https://api.github.com/repos/ElBiniou/phi-component/zipball/f8a432f3a95c7a79f1182ae747dbd2014db4401d",
+                "reference": "f8a432f3a95c7a79f1182ae747dbd2014db4401d",
                 "shasum": ""
             },
             "type": "library",
@@ -85,7 +85,7 @@
                     "Mustache": "vendor/mustache/src"
                 },
                 "psr-4": {
-                    "Phi\\Component\\": "source"
+                    "Phi\\Component\\": "source/class"
                 },
                 "files": []
             },
@@ -94,7 +94,7 @@
                 "source": "https://github.com/ElBiniou/phi-component/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-component/issues"
             },
-            "time": "2017-06-01 13:21:37"
+            "time": "2017-06-01 13:33:39"
         },
         {
             "name": "phi-database",
@@ -123,6 +123,34 @@
                 "issues": "https://github.com/ElBiniou/phi-database/issues"
             },
             "time": "2017-06-01 11:34:28"
+        },
+        {
+            "name": "phi-event",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ElBiniou/phi-event.git",
+                "reference": "de586ec00c2237e78f3dc6c20153563e8c782ed7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ElBiniou/phi-event/zipball/de586ec00c2237e78f3dc6c20153563e8c782ed7",
+                "reference": "de586ec00c2237e78f3dc6c20153563e8c782ed7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phi\\Event\\": "source/class"
+                },
+                "files": []
+            },
+            "description": "Phi event",
+            "support": {
+                "source": "https://github.com/ElBiniou/phi-event/tree/master",
+                "issues": "https://github.com/ElBiniou/phi-event/issues"
+            },
+            "time": "2017-06-01 13:53:02"
         },
         {
             "name": "phi-http",
@@ -248,18 +276,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ElBiniou/phi-traits.git",
-                "reference": "1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78"
+                "reference": "ae58b07e0082c44363185da8c15d99bdc6e186b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ElBiniou/phi-traits/zipball/1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78",
-                "reference": "1cff8cbe8655a9cdb52fbc43aea846d49c5b0e78",
+                "url": "https://api.github.com/repos/ElBiniou/phi-traits/zipball/ae58b07e0082c44363185da8c15d99bdc6e186b5",
+                "reference": "ae58b07e0082c44363185da8c15d99bdc6e186b5",
                 "shasum": ""
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Phi\\Traits\\": "source/class/Traits"
+                    "Phi\\Traits\\": "source/class"
                 },
                 "files": []
             },
@@ -268,7 +296,7 @@
                 "source": "https://github.com/ElBiniou/phi-traits/tree/master",
                 "issues": "https://github.com/ElBiniou/phi-traits/issues"
             },
-            "time": "2017-06-01 11:10:56"
+            "time": "2017-06-01 14:48:29"
         }
     ],
     "packages-dev": [],
@@ -282,6 +310,7 @@
         "phi-cache": 20,
         "phi-database": 20,
         "phi-storage": 20,
+        "phi-event": 20,
         "phi-application": 20,
         "phi-component": 20
     },
