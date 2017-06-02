@@ -12,7 +12,8 @@
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-event"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-application"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-component"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-doctrine"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-doctrine"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-template"}
 	],
 	"require":
 	{
@@ -26,7 +27,8 @@
 		"phi-event": "dev-master",
 		"phi-application": "dev-master",
 		"phi-component": "dev-master",
-		"phi-doctrine": "dev-master"
+		"phi-doctrine": "dev-master",
+		"phi-template": "dev-master"
 	},
 	"require-dev": {
 	},
