@@ -11,7 +11,8 @@
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-storage"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-event"},
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-application"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-component"}
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-component"},
+		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-doctrine"}
 	],
 	"require":
 	{
@@ -24,7 +25,8 @@
 		"phi-storage": "dev-master",
 		"phi-event": "dev-master",
 		"phi-application": "dev-master",
-		"phi-component": "dev-master"
+		"phi-component": "dev-master",
+		"phi-doctrine": "dev-master"
 	},
 	"require-dev": {
 	},
