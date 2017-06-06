@@ -9,18 +9,38 @@ ini_set('display_errors', 'on');
 
 
 
+$request=new \Phi\Routing\Request();
+$request->setURI('/home/hello/world');
+
+
 $router=new \Phi\Routing\Router();
-$router->get('`hello'.$router->getEndRouteRegexp().'`', function() {
+
+
+
+
+$route=$router->get('test-02', '`hello/(.*?)$`', function($string) {
+    echo 'Catched "'.$string, '"', "\n";
+    return true;
+})->setBuilder('/hello/{string}');
+
+
+$route=$router->get('test-00', '`hello'.$router->getEndRouteRegexp().'`', function() {
 	echo "hello route\n";
 	return true;
 });
 
 
-$router->get('`.*`', function() {
+$route=$router->get('test-01', '`.*`', function() {
 	echo "match all route\n";
 	return true;
 });
 
-$router->run();
+$router->route($request);
+
+echo "\n\n";
+
+echo $router->build('test-02', array(
+    'string'=>'yolo'
+));
 
 
