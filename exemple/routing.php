@@ -6,8 +6,7 @@ include(__DIR__.'/../bootstrap.php');
 ini_set('display_errors', 'on');
 
 
-
-
+//throw new Exception('test');
 
 $request=new \Phi\Routing\Request();
 $request->setURI('/home/hello/world');
