@@ -13,7 +13,8 @@ $router = new \Phi\Routing\Router();
 
 $route = $router->get('', '`.*`', function () {
     $data=array(
-        'content-type'=>'application/json'
+        'content-type'=>'application/json',
+        'key'=>'value'
     );
     echo json_encode($data);
     return true;

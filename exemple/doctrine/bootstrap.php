@@ -1,7 +1,7 @@
 <?php
 
 
-include(__DIR__.'/../bootstrap.php');
+include(__DIR__.'/../../bootstrap.php');
 ini_set('display_errors', 'on');
 
 
@@ -26,7 +26,27 @@ $conn = array(
     'path' => __DIR__ . '/db.sqlite',
 );
 
+
+
 // obtaining the entity manager
 $entityManager = EntityManager::create($conn, $config);
 
-print_r($entityManager);
+$driver = new \Doctrine\Common\Persistence\Mapping\Driver\PHPDriver(__DIR__.'/mapping');
+$entityManager->getConfiguration()->setMetadataDriverImpl($driver);
+
+//print_r($entityManager);
+
+//die('EXIT '.__FILE__.'@'.__LINE__);
+include(__DIR__.'/test.entity.php');
+include(__DIR__.'/repository/TestRepository.php');
+
+
+/*
+$repository=$entityManager->getRepository('Test');
+
+echo '<pre id="' . __FILE__ . '-' . __LINE__ . '" style="border: solid 1px rgb(255,0,0); background-color:rgb(255,255,255)">';
+echo '<div style="background-color:rgba(100,100,100,1); color: rgba(255,255,255,1)">' . __FILE__ . '@' . __LINE__ . '</div>';
+print_r($repository);
+echo '</pre>';
+die('EXIT '.__FILE__.'@'.__LINE__);
+*/

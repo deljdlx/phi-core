@@ -17,6 +17,8 @@
 	],
 	"require":
 	{
+		"doctrine/orm": "^2.5",
+
 		"phi-traits": "dev-master",
 		"phi-routing": "dev-master",
 		"phi-http": "dev-master",
