@@ -17,6 +17,11 @@ $configuration=Setup::createConfiguration($isDevMode);
 $driver = new \Doctrine\Common\Persistence\Mapping\Driver\PHPDriver(__DIR__.'/mapping');
 $configuration->setMetadataDriverImpl($driver);
 
+//no autoload
+include(__DIR__.'/Entity/Test.php');
+include(__DIR__.'/Repository/Test.php');
+
+
 //$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode);
 
 

@@ -2,8 +2,6 @@
 
 require(__DIR__.'/bootstrap.php');
 
-include(__DIR__.'/Entity/Test.php');
-include(__DIR__.'/Repository/Test.php');
 
 
 $repository=$entityManager->getRepository('Exemple\Doctrine\Entity\Test');

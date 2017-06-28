@@ -29,7 +29,6 @@
 		"phi-event": "dev-master",
 		"phi-application": "dev-master",
 		"phi-component": "dev-master",
-		"phi-doctrine": "dev-master",
 		"phi-template": "dev-master"
 	},
 	"require-dev": {
