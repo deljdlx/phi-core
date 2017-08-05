@@ -1,5 +1,5 @@
 {
-	"name": "elbiniou-phi",
+	"name": "phi",
 	"description": "A framework for people who don't like frameworks",
 	"repositories": [
 		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-routing"},
