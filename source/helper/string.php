@@ -42,3 +42,16 @@ function removeAccent($str, $charset = 'utf-8')
 
 
 
+
+function obinclude($file, $variables = array())
+{
+    ob_start();
+    extract($variables);
+    include($file);
+    return ob_get_clean();
+}
+
+
+
+
+
