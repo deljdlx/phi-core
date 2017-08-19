@@ -1,5 +1,5 @@
 <?php
-namespace Phi;
+namespace Phi\Core;
 
 
 

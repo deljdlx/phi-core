@@ -9,8 +9,7 @@
 	"autoload": {
 		"files": ["source/helper.php"],
 		"psr-4": {
-			"Phi\\": "source/class",
-			"Phi\\Interfaces\\": "source/Interfaces"
+			"Phi\\Core\\": "source/class"
 		}
 	}
 }
