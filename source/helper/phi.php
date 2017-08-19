@@ -1,5 +1,16 @@
 <?php
 
+function rglob($pattern, $flags = 0)
+{
+    $files = glob($pattern, $flags);
+    foreach (glob(dirname($pattern).'/*', GLOB_ONLYDIR|GLOB_NOSORT) as $dir)
+    {
+        $files = array_merge($files, rglob($dir.'/'.basename($pattern), $flags));
+    }
+    return $files;
+}
+
+
 
 function isClosure($variable)
 {
@@ -7,27 +18,6 @@ function isClosure($variable)
 }
 
 
-function registerNamespace($namespace, $folder)
-{
-    static $autoloader;
-    static $componentAutoloader;
-    if (!$autoloader) {
-        $autoloader = new \Phi\Autoloader();
-        spl_autoload_register(function ($calledClassName) use ($autoloader) {
-            $autoloader->autoload($calledClassName);
-        });
-    }
-    $autoloader->addNamespace($namespace, $folder);
-
-
-    if (!$componentAutoloader) {
-        $componentAutoloader = new \Phi\PackageAutoloader();
-        spl_autoload_register(function ($calledClassName) use ($componentAutoloader) {
-            $componentAutoloader->autoload($calledClassName);
-        });
-    }
-    $componentAutoloader->addNamespace($namespace, $folder);
-}
 
 
 function includePhiModule($moduleName)
