@@ -1,37 +1,6 @@
 {
-	"name": "phi",
+	"name": "phi-core",
 	"description": "A framework for people who don't like frameworks",
-	"repositories": [
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-routing"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-traits"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-http"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-session"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-cache"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-database"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-storage"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-event"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-application"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-component"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-template"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-container"},
-		{"type": "vcs", "url": "https://github.com/ElBiniou/phi-configuration"}
-	],
-	"require":
-	{
-		"phi-traits": "dev-master",
-		"phi-routing": "dev-master",
-		"phi-http": "dev-master",
-		"phi-session": "dev-master",
-		"phi-cache": "dev-master",
-		"phi-database": "dev-master",
-		"phi-storage": "dev-master",
-		"phi-event": "dev-master",
-		"phi-application": "dev-master",
-		"phi-component": "dev-master",
-		"phi-template": "dev-master",
-		"phi-container": "dev-master",
-		"phi-configuration": "dev-master"
-	},
 	"require-dev": {
 	},
 	"config": {
