@@ -54,7 +54,7 @@ class Autoloader
             }
         }
         else {
-            throw new Exception('Folder '.$folder.' does not exist');
+            throw new \Exception('Folder '.$folder.' does not exist');
         }
 
         return $this;
