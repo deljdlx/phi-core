@@ -1,4 +1,6 @@
 <?php
+namespace Phi\Core;
+
 
 
 function slugify($string)
