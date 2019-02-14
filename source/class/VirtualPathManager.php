@@ -29,6 +29,10 @@ class VirtualPathManager
 
         $path = realpath($realPath);
 
+        if(!$path) {
+            throw new Exception('Path "'.$realPath.'" does not exists');
+        }
+
         $this->virtualPathes[$virtualPath] = $path;
         $this->virtualPathes[$realPath] = $path;
 
