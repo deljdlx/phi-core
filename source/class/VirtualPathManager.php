@@ -8,6 +8,7 @@ class VirtualPathManager
     protected static $mainInstance;
 
     protected $virtualPathes = [];
+    protected $virtualPathesByName = [];
 
 
     /**
@@ -23,13 +24,29 @@ class VirtualPathManager
     }
 
 
-    public function registerPath($realPath, $virtualPath)
+    public function registerPath($realPath, $virtualPath, $name = null)
     {
 
-        $this->virtualPathes[$virtualPath] = realpath($realPath);
-        $this->virtualPathes[$realPath] = realpath($realPath);
+        $path = realpath($realPath);
+
+        $this->virtualPathes[$virtualPath] = $path;
+        $this->virtualPathes[$realPath] = $path;
+
+        if($name) {
+            $this->virtualPathesByName[$name] = &$this->virtualPathes[$virtualPath];
+        }
 
         return $this;
+    }
+
+    public function getPathByName($name)
+    {
+        if(array_key_exists($name, $this->virtualPathesByName)) {
+            return $this->virtualPathesByName[$name];
+        }
+        else {
+            throw new Exception('Virtual path with name "'.$name.'" is not registered');
+        }
     }
 
 
