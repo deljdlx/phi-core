@@ -27,6 +27,14 @@ class VirtualPathManager
     public function registerPath($realPath, $virtualPath, $name = null)
     {
 
+        if(is_dir($virtualPath)) {
+            $this->virtualPathes[$virtualPath] = $virtualPath;
+            if($name) {
+                $this->virtualPathesByName[$name] = &$this->virtualPathes[$virtualPath];
+            }
+            return $this;
+        }
+
         $path = realpath($realPath);
 
         if(!$path) {
