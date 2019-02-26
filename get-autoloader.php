@@ -17,10 +17,7 @@ if(!defined('PHI_CORE_INITIALIZED')) {
 
 }
 else {
-
-    return $__PhiAutoloader;
-
-    //throw new \Phi\Core\Exception('Phi bootstrap called twice');
+    throw new \Phi\Core\Exception('Phi bootstrap called twice');
 }
 
 
