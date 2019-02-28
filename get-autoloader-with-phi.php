@@ -15,8 +15,6 @@ if(!defined('PHI_CORE_INITIALIZED')) {
     $__PhiAutoloader->addNamespace('Phi\Core', __DIR__.'/source/class');
 
 
-
-
      $__PhiAutoloader->addNamespace('Phi\Traits', $currentPhiPath.'/phi-traits/source/class');
 
 
