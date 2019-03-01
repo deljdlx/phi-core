@@ -2,6 +2,7 @@
 namespace Phi\Core;
 
 
+
 class Autoloader
 {
 
@@ -13,10 +14,12 @@ class Autoloader
     public function addNamespace($namespace, $folder)
     {
 
+
+        $folder = $this->normalizeFilepath($folder);
         $this->namespaces[$namespace] = $folder;
 
 
-        $folder = $this->normalizeFilepath($folder);
+
 
         if (is_dir($folder)) {
 
