@@ -6,9 +6,29 @@ namespace Phi\Core;
 class Autoloader
 {
 
+    const DEFAULT_INSTANCE_NAME ='PHI_DEFAULT_AUTOLOADER';
+
+    protected static $instances = [];
+
 
     protected $namespaces = array();
     protected $classIndex = false;
+
+
+    public static function getInstance($instanceName = self::DEFAULT_INSTANCE_NAME)
+    {
+        if(!array_key_exists($instanceName, static::$instances)) {
+            static::$instances[$instanceName] = new static;
+        }
+
+        return static::$instances[$instanceName];
+
+    }
+
+    public function __construct()
+    {
+
+    }
 
 
     public function addNamespace($namespace, $folder)

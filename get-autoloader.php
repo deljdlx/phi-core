@@ -9,7 +9,7 @@ if(!defined('PHI_CORE_INITIALIZED')) {
 
 
 
-    $__PhiAutoloader=new \Phi\Core\Autoloader();
+    $__PhiAutoloader = \Phi\Core\Autoloader::getInstance();
     $__PhiAutoloader->addNamespace('Phi\Core', __DIR__.'/source/class');
     $__PhiAutoloader->register();
 
