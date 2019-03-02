@@ -35,6 +35,9 @@ class Autoloader
     {
 
 
+        $namespace = preg_replace('`^\\\\`', '', $namespace);
+
+
         $folder = $this->normalizeFilepath($folder);
         $this->namespaces[$namespace] = $folder;
 
