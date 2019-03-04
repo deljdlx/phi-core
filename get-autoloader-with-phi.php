@@ -14,6 +14,9 @@ if(!defined('PHI_CORE_INITIALIZED')) {
     $__PhiAutoloader = \Phi\Core\Autoloader::getInstance();
     $__PhiAutoloader->addNamespace('Phi\Core', __DIR__.'/source/class');
 
+    $__PhiAutoloader->addNamespace('Phi\VirtualFileSystem', $currentPhiPath.'/phi-virtual-filesystem/source/class');
+
+
 
      $__PhiAutoloader->addNamespace('Phi\Traits', $currentPhiPath.'/phi-traits/source/class');
 

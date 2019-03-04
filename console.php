@@ -7,7 +7,7 @@ if(isset($argv[2])) {
 		include($argv[2]);
 	}
 	else {
-		echo "\nFile ".$argv[2]." no foundn";
+		echo "\nFile ".$argv[2]." no found";
 	}
 }
 
