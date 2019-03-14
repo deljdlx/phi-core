@@ -46,13 +46,11 @@ if(!defined('PHI_CORE_INITIALIZED')) {
 
 
 
-    //$__PhiAutoloader->addNamespace('Phi\Cache', $currentPhiPath.'/phi-cache/source/class');
+    $__PhiAutoloader->addNamespace('Phi\Cache', $currentPhiPath.'/phi-cache/source/class');
 
-     //$__PhiAutoloader->addNamespace('Phi\Template', $currentPhiPath.'/phi-template/source/class');
-
-
-     //$__PhiAutoloader->addNamespace('Phi\HTML', $currentPhiPath.'/phi-html/source/class');
-     //$__PhiAutoloader->addNamespace('Phi\HTML\Extended', $currentPhiPath.'/phi-html-extended/source/class');
+     $__PhiAutoloader->addNamespace('Phi\Template', $currentPhiPath.'/phi-template/source/class');
+     $__PhiAutoloader->addNamespace('Phi\HTML', $currentPhiPath.'/phi-html/source/class');
+     $__PhiAutoloader->addNamespace('Phi\HTML\Extended', $currentPhiPath.'/phi-html-extended/source/class');
     
     
     
