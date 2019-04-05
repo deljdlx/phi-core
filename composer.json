@@ -7,7 +7,6 @@
 		"process-timeout": 600
 	},
 	"autoload": {
-		"files": ["source/helper.php"],
 		"psr-4": {
 			"Phi\\Core\\": "source/class"
 		}
