@@ -2,6 +2,7 @@
 	"name": "phi-core",
 	"description": "A framework for people who don't like frameworks",
 	"require-dev": {
+		"phpunit/phpunit": "^8"
 	},
 	"config": {
 		"process-timeout": 600
