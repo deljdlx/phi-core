@@ -1,6 +1,6 @@
 <?php
 
-namespace Phi\Core\Helper;
+namespace Phi\Core;
 
 
 class StringUtil

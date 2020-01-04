@@ -14,21 +14,34 @@ class Regexp
     private $delimiter = '`';
 
 
+    /**
+     * @var array
+     */
     private $matches = [];
 
-    public function __construct($regexp, $flags = [])
+    /**
+     * Regexp constructor.
+     * @param $regexp
+     * @param array $flags
+     */
+    public function __construct($regexp, array $flags = [])
     {
         $this->regexp = $regexp;
         $this->flags = $flags;
     }
 
-    public function match($string)
+
+    /**
+     * @param $string
+     * @return int
+     */
+    public function match($string): int
     {
         return preg_match_all($this->compile(), $string, $this->matches);
     }
 
 
-    public function compile()
+    public function compile(): string
     {
         return
             $this->delimiter.
@@ -38,8 +51,10 @@ class Regexp
         ;
     }
 
-
-    public function getMatches()
+    /**
+     * @return array
+     */
+    public function getMatches(): array
     {
         return $this->matches;
     }
